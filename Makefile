@@ -5,11 +5,11 @@ LIBFT	= libft/libft.a
 
 SRCS =	./utils/ft_message_errors.c\
 		push_swap.c\
-		./functions_sort/ft_sa.c\
-		./functions_sort/ft_sb.c\
 		./functions_sort/ft_ss.c\
-		./functions_sort/ft_pa.c\
-		./functions_sort/ft_pb.c\
+		./functions_sort/ft_pp.c\
+		./functions_sort/ft_rr.c\
+		./functions_sort/ft_rrr.c\
+		./utils/functions_help_to_sorting.c\
 
 all: $(NAME)
 

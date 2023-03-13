@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_pp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 18:37:57 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/10 19:49:45 by mayache-         ###   ########.fr       */
+/*   Created: 2023/03/13 21:42:27 by mayache-          #+#    #+#             */
+/*   Updated: 2023/03/13 21:43:26 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_sa(t_stack s)
+void ft_pb(t_stack *stck)
 {
-	long long swap_a;
+	ft_sproximo_b(stck, ft_pop_a(stck));
+	 printf("\n\t.pb.\t\n");
+}
 
-	swap_a = s.stack_a[0];
-	s.stack_a[0] = s.stack_a[1];
-	s.stack_a[1] = swap_a;
+void	ft_pa(t_stack *t_stck)
+{
+	ft_sproximo_a(t_stck, ft_pop_b(t_stck));
+	printf("\n\t.pa.\t\n");
 }
