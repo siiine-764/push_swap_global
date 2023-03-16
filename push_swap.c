@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/16 01:22:16 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:37:58 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,55 @@ void	ft_check_range(t_stack *stck)
 		// range++;
 	}
 }
+
+long long	*ft_sort(t_stack *stck)
+{
+	int	i;
+	long long	nbr;
+	long long	*chaos;
+
+	chaos = malloc(sizeof(long long *) * stck->top_a);
+	if (!chaos)
+		printf("Error VIP : cette array n\'est pas remplir\n");
+	i = 0;
+	while (i < stck->top_a)
+	{
+		chaos[i] = stck->stack_a[i];
+		i++;
+	}
+	i = stck->top_a;
+	while (i--)
+	{
+		if (chaos[i] > chaos[i + 1])
+		{	
+			nbr = chaos[i];
+			chaos[i] = chaos[i + 1];
+			chaos[i + 1] = nbr;
+			i = 0;
+		}
+		else
+			i++;
+	}
+	return (chaos);
+}
+
+long long find_pos_extra(long long *chaos, long long nbr)
+{
+	int i;
+
+	i = 0;
+	while (i < 500)
+	{
+		if (chaos[i] == nbr){
+			// printf("--> find :%d\n", i);
+			// printf("--> find chaos :%lld\n", chaos[i]);
+			return (i);
+		}
+		i++;
+	}
+	return (-1);
+}
+
 int main(int ac, char **av)
 {
 	char	**nmbr;
@@ -115,26 +164,33 @@ int main(int ac, char **av)
 	// ft_check_range(&s);
 	int	lg;
 	int	range = 0;
+	long long	*chaos = ft_sort(&s);
+	long long sop = 0;
+	// printf("-> fill chaos : %lld <-\n", *chaos);
 	lg = s.top_a + 1;
 	while (lg--)
 	{
-		if (s.stack_a[0] >= (0 + range) && s.stack_a[0] <= (15 + range))
+		sop = find_pos_extra(chaos, s.stack_a[0]);
+		if (sop >= (0 + range) && sop <= (15 + range))
 		{
 			ft_pb(&s);
+			// printf("A - %lld\n", sop);
 			range++;
 		}
-		 if (s.stack_a[0] > (15 + range))
+		else if (sop > (15 + range))
 		{
 			ft_ra(&s);
+			// printf("B - %lld\n", sop);
 		}
-		if (s.stack_a[0] < (0 + range))
+		else if (sop < (0 + range))
 		{
 			ft_pb(&s);
 			ft_rb(&s);
+			// printf("C - %lld\n", sop);
 			range++;
 		}
 	}
 	print_stacks(&s);
-	printf("neverything right\n");
+	printf("everything right\n");
 	return (0);
 }
