@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/13 21:49:51 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/16 01:22:16 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,22 @@ void    print_stacks(t_stack *p)
 
     printf("\n");
     i = 0;
-    while (i <= p->top_a || i <= p->top_b)
+	while (i <= p->top_a)
     {
-        if (i <= p->top_a && i <= p->top_b)
-            printf("\x1b[31m| %lld |    | %lld |\n", p->stack_a[i], p->stack_b[i]);
-        else if (i <= p->top_a && i > p->top_b)
-            printf("\x1b[31m| %lld |    |    |\n", p->stack_a[i]);
-        else if (i > p->top_a && i <= p->top_b)
-            printf("\x1b[31m          | %lld |\n", p->stack_b[i]);
+        printf("\x1b[38;2;207;75;14m\t| %lld |\n", p->stack_a[i]);
         i++;
     }
-    printf("-----      ----\n");
-    printf("  a          b  \n");
+	printf("\t-----\n");
+    printf("\t  a\n");
+	i = 0;
+	printf("\n\n");
+    while (i <= p->top_b)
+    {
+        printf("\x1b[38;2;207;75;14m\t| %lld |\t\n", p->stack_b[i]);
+        i++;
+    }
+    printf("\t----\n");
+    printf("\t  b  \n");
     printf("\n");
 }
 
@@ -67,6 +71,29 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 	return (numbers);
 }
 
+void	ft_check_range(t_stack *stck)
+{
+	int	lg;
+	int	range = 15;
+	lg = 0;
+	// printf("%d", stck->top_a);
+	while (lg <= stck->top_a)
+	{
+		// if (stck->stack_a[lg] > 0 || stck->stack_a[lg] < range)
+		// {
+		// 	printf("%lld", stck->stack_a[lg]);
+		// 	ft_pb(stck);
+		// }
+		if (stck->stack_a[lg] > range)
+		{
+			// printf("%lld", stck->stack_a[lg]);
+			ft_ra(stck);
+		}
+		printf("---%d\n", lg);
+		lg++;
+		// range++;
+	}
+}
 int main(int ac, char **av)
 {
 	char	**nmbr;
@@ -85,31 +112,29 @@ int main(int ac, char **av)
 
 	s.top_a--;
 	print_stacks(&s);
-	ft_pb(&s);
-	ft_pb(&s);
-	ft_pb(&s);
-	ft_pb(&s);
-	ft_pb(&s);
-	ft_pb(&s);
-	ft_pb(&s);
+	// ft_check_range(&s);
+	int	lg;
+	int	range = 0;
+	lg = s.top_a + 1;
+	while (lg--)
+	{
+		if (s.stack_a[0] >= (0 + range) && s.stack_a[0] <= (15 + range))
+		{
+			ft_pb(&s);
+			range++;
+		}
+		 if (s.stack_a[0] > (15 + range))
+		{
+			ft_ra(&s);
+		}
+		if (s.stack_a[0] < (0 + range))
+		{
+			ft_pb(&s);
+			ft_rb(&s);
+			range++;
+		}
+	}
 	print_stacks(&s);
-	ft_ra(&s);
-	ft_ra(&s);
-	print_stacks(&s);
-	ft_rra(&s);
-	ft_rra(&s);
-	print_stacks(&s);
-	ft_rrb(&s);
-	ft_rrb(&s);
-	print_stacks(&s);
-	ft_rb(&s);
-	ft_rb(&s);
-	ft_rb(&s);
-	ft_rb(&s);
-	print_stacks(&s);
-	ft_pa(&s);
-	print_stacks(&s);
-
-	printf("\neverything right\n");
+	printf("neverything right\n");
 	return (0);
 }

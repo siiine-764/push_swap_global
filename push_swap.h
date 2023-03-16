@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/13 21:48:31 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:53:25 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void		ft_rrb(t_stack *stck);
 void		ft_ra(t_stack *stck);
 void		ft_rb(t_stack *stck);
 void		ft_rr(t_stack *stck);
+// functions to sorting //
+void		ft_check_range(t_stack *stck);
 /// ft_fill_stacks //
 void	fill_stack_a(char **a, t_stack *s);
 /// ft_messages_errors //
