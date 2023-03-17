@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:44:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/16 21:43:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:21:46 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ long long	ft_pop_a(t_stack *stck)
 		stck->stack_a[i] = stck->stack_a[i + 1];
 		i++;
 	}
-	stck->top_a--;
+	// stck->top_a--;
 	return (el);
 }
 
 
 void	ft_sproximo_b(t_stack *stck, long long elemento)
 {
-	stck->top_b++;
+	// stck->top_b++;
 	stck->stack_b[stck->top_b] = elemento;
 }
 

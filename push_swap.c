@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/16 22:37:58 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:48:26 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,28 +71,21 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 	return (numbers);
 }
 
-void	ft_check_range(t_stack *stck)
+long long find_pos_extra(long long *chaos, long long nbr)
 {
-	int	lg;
-	int	range = 15;
-	lg = 0;
-	// printf("%d", stck->top_a);
-	while (lg <= stck->top_a)
+	int i;
+
+	i = 0;
+	while (i < 500)
 	{
-		// if (stck->stack_a[lg] > 0 || stck->stack_a[lg] < range)
-		// {
-		// 	printf("%lld", stck->stack_a[lg]);
-		// 	ft_pb(stck);
-		// }
-		if (stck->stack_a[lg] > range)
-		{
-			// printf("%lld", stck->stack_a[lg]);
-			ft_ra(stck);
+		if (chaos[i] == nbr){
+			printf("--> find :%d\n", i);
+			printf("--> find chaos :%lld\n", chaos[i]);
+			return (i);
 		}
-		printf("---%d\n", lg);
-		lg++;
-		// range++;
+		i++;
 	}
+	return (-1);
 }
 
 long long	*ft_sort(t_stack *stck)
@@ -110,8 +103,8 @@ long long	*ft_sort(t_stack *stck)
 		chaos[i] = stck->stack_a[i];
 		i++;
 	}
-	i = stck->top_a;
-	while (i--)
+	i = 0;
+	while (i < stck->top_a - 1)
 	{
 		if (chaos[i] > chaos[i + 1])
 		{	
@@ -122,25 +115,43 @@ long long	*ft_sort(t_stack *stck)
 		}
 		else
 			i++;
+		// printf("--> choas :%lld\n", chaos[i + 1]);
 	}
 	return (chaos);
 }
 
-long long find_pos_extra(long long *chaos, long long nbr)
+void	ft_check_range(t_stack *s)
 {
-	int i;
-
-	i = 0;
-	while (i < 500)
+	int	range = 0;
+	long long	*chaos = ft_sort(s);
+	long long sopa = 0; 
+	int y = 0;
+	while (chaos[y])
 	{
-		if (chaos[i] == nbr){
-			// printf("--> find :%d\n", i);
-			// printf("--> find chaos :%lld\n", chaos[i]);
-			return (i);
-		}
-		i++;
+		printf("chaos[%d] = %lld\n", y, chaos[y]);
+		y++;
 	}
-	return (-1);
+	while (s->top_a >= 0)
+	{
+		sopa = find_pos_extra(chaos, s->stack_a[0]);
+		if (sopa >= range && sopa <= 30 + range)
+		{
+			ft_pb(s);
+			range++;
+		}
+		else if (sopa < range)
+		{
+			ft_pb(s);
+			ft_rb(s);
+			range++;
+		}
+		else if (sopa > 30 + range)
+		{
+			ft_ra(s);
+		}
+		printf("\ntop_a = %lld\n", s->stack_a[0]);
+		usleep(100000);
+	}
 }
 
 int main(int ac, char **av)
@@ -161,35 +172,8 @@ int main(int ac, char **av)
 
 	s.top_a--;
 	print_stacks(&s);
-	// ft_check_range(&s);
-	int	lg;
-	int	range = 0;
-	long long	*chaos = ft_sort(&s);
-	long long sop = 0;
-	// printf("-> fill chaos : %lld <-\n", *chaos);
-	lg = s.top_a + 1;
-	while (lg--)
-	{
-		sop = find_pos_extra(chaos, s.stack_a[0]);
-		if (sop >= (0 + range) && sop <= (15 + range))
-		{
-			ft_pb(&s);
-			// printf("A - %lld\n", sop);
-			range++;
-		}
-		else if (sop > (15 + range))
-		{
-			ft_ra(&s);
-			// printf("B - %lld\n", sop);
-		}
-		else if (sop < (0 + range))
-		{
-			ft_pb(&s);
-			ft_rb(&s);
-			// printf("C - %lld\n", sop);
-			range++;
-		}
-	}
+	// int	lg;
+	ft_check_range(&s);
 	print_stacks(&s);
 	printf("everything right\n");
 	return (0);

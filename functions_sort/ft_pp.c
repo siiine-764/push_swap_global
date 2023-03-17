@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:42:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/16 00:39:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:23:07 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,28 @@
 
 void ft_pb(t_stack *stck)
 {
-	ft_sproximo_b(stck, ft_pop_a(stck));
+	long long	pop_a;
+	int			i = 0;
+
+	pop_a = stck->stack_a[0];
+	printf("---> %lld", pop_a);
+	// i = stck->top_a + 1;
+	while (stck->stack_a[i])
+	{
+		stck->stack_a[i] = stck->stack_a[i + 1];
+		i++;
+	}
+	stck->top_a--;
+	stck->top_b++;
+	stck->stack_b[stck->top_b] = pop_a;
+	// ft_sproximo_b(stck, ft_pop_a(stck));
 	printf("\n\t\t.pb.\t");
 }
 
 void	ft_pa(t_stack *stck)
 {
+	stck->top_a++;
 	ft_sproximo_a(stck, ft_pop_b(stck));
+	stck->top_b--;
 	printf("\n\t\t.pa.\t");
 }
