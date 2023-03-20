@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/19 21:51:59 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:22:15 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	fill_stack_a(char **a, t_stack *s)
 char	**put_nbr_array(char **av, int ac, t_stack *p)
 {
 	char	*tmp_num;
+	// char	*test;
 	char	**numbers;
 	int i;
 
@@ -35,12 +36,12 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 	p->size = 0;
 	while (av[i])
 	{
-		tmp_num = ft_strjoin((const char *)tmp_num, (const char *)av[i]);
-		tmp_num = ft_strjoin((const char *)tmp_num, " ");
+		tmp_num = ft_strjoin(tmp_num, av[i]);
+		tmp_num = ft_strjoin(tmp_num, " ");
 		i++;
 		p->size++;
 	}
 	numbers = ft_split((const char *)tmp_num, ' ');
-	// free(tmp_num);
+	free(tmp_num);
 	return (numbers);
 }

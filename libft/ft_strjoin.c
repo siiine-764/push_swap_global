@@ -6,13 +6,13 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 19:52:51 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/13 15:27:54 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:19:46 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*reue;
 	size_t	lens1;
@@ -26,10 +26,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	{
 		reue = (char *)malloc(lens2 + lens1 + 1);
 		if (reue == NULL)
+		{
+			free(s1);
 			return (NULL);
+		}
 		ft_strlcpy(reue, s1, lens1 + 1);
 		ft_strlcat(reue, s2, lens2 + lens1 + 1);
+		free(s1);
 		return (reue);
 	}
+	free(s1);
 	return (0);
 }

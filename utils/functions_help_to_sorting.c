@@ -6,45 +6,62 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:44:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/17 13:21:46 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:09:22 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long long	ft_pop_a(t_stack *stck)
+void	ft_ra(t_stack *stck)
 {
-	long long	el;
-	int			i = 0;
+	long long top_a;
+	top_a = stck->stack_a[stck->top_a];
 
-	el = stck->stack_a[0];
-	while (i < stck->top_a)
+	int	lg = stck->top_a + 1;
+	while (lg--)
 	{
-		stck->stack_a[i] = stck->stack_a[i + 1];
-		i++;
+		stck->stack_a[lg] = stck->stack_a[lg - 1];
 	}
-	// stck->top_a--;
-	return (el);
+	stck->stack_a[0] =top_a;
 }
 
-
-void	ft_sproximo_b(t_stack *stck, long long elemento)
+void	ft_rb(t_stack *stck)
 {
-	// stck->top_b++;
-	stck->stack_b[stck->top_b] = elemento;
+	long long top_b;
+	
+	top_b = stck->stack_b[stck->top_b];
+	int	lg = stck->top_b + 1;
+	while (lg--)
+	{
+		stck->stack_b[lg] = stck->stack_b[lg - 1];
+	}
+	stck->stack_b[0] =top_b;
 }
 
-long long	ft_pop_b(t_stack *stck)
+void	ft_rra(t_stack *stck)
 {
-	long long	el;
+	long long	down_a;
+	int			lg = stck->top_a;
 
-	el = stck->stack_b[stck->top_b];
-	stck->top_b--;
-	return (el);
+	down_a = stck->stack_a[stck->top_a];
+	while (lg >= 0)
+	{
+		stck->stack_a[lg] = stck->stack_a[lg - 1];
+		lg--;
+	}
+	stck->stack_a[0] = down_a;
 }
 
-void	ft_sproximo_a(t_stack *stck, long long elemento)
+void	ft_rrb(t_stack *stck)
 {
-	stck->top_a++;
-	stck->stack_a[stck->top_a] = elemento;	
+	long long	down_b;
+	int			lg = stck->top_b;
+
+	down_b = stck->stack_b[stck->top_b];
+	while (lg >= 0)
+	{
+		stck->stack_b[lg] = stck->stack_b[lg - 1];
+		lg--;
+	}
+	stck->stack_b[0] = down_b;
 }

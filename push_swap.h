@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/19 17:12:03 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:10:43 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,22 @@ typedef struct stack
 void	ft_check_input(char **av);
 void	check_argv(int argc, char **argv);
 /// ft_sort //
-void		ft_pb(t_stack *t_stck);
-void		ft_pa(t_stack *t_stck);
-void		ft_sa(t_stack *stck);
-void		ft_sb(t_stack *stck);
-void		ft_ss(t_stack *stck);
+void		pb(t_stack *t_stck);
+void		pa(t_stack *t_stck);
+void		sa(t_stack *stck);
+void		sb(t_stack *stck);
+void		ss(t_stack *stck);
+void		rra(t_stack *stck);
+void		rrb(t_stack *stck);
+void		ra(t_stack *stck);
+void		rb(t_stack *stck);
+void		rr(t_stack *stck);
+void		ft_rb(t_stack *stck);
+void		ft_ra(t_stack *stck);
 void		ft_rra(t_stack *stck);
 void		ft_rrb(t_stack *stck);
-void		ft_ra(t_stack *stck);
-void		ft_rb(t_stack *stck);
-void		ft_rr(t_stack *stck);
+void		ft_sb(t_stack *s);
+void		ft_sa(t_stack *s);
 // functions to sorting //
 void		ft_check_range(t_stack *stck);
 long long	*ft_sort(t_stack *stck);

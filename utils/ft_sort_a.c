@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:01:54 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/19 17:02:43 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:13:15 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 long long ft_find_biger(t_stack *stck)
 {
-	int	i = -1;
-	long long biger;
+	int			i;
+	long long	biger;
 
 	biger = stck->stack_b[0];
+	i = -1;
 	while(++i < stck->top_b)
 	{
 		if (biger < stck->stack_b[i])
@@ -28,8 +29,9 @@ long long ft_find_biger(t_stack *stck)
 
 long long ft_find_location(t_stack *stck, long long nbr)
 {
-	int	i = -1;
+	int	i;
 
+	i = -1;
 	while (++i < stck->top_b)
 		if (stck->stack_b[i] == nbr)
 			return (i);
@@ -48,14 +50,14 @@ void ft_push_stack_a(t_stack *stck)
 		if (location <= (stck->top_b / 2))
 		{
 			while (!(stck->stack_b[0] == biger))
-				ft_rb(stck);
-			ft_pa(stck);
+				rb(stck);
+			pa(stck);
 		}
 		else if (location > (stck->top_b / 2))
 		{
 			while (!(stck->stack_b[0] == biger))
-				ft_rrb(stck);
-			ft_pa(stck);
+				rrb(stck);
+			pa(stck);
 		}
 	}
 }

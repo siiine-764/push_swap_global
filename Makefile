@@ -17,11 +17,8 @@ all: $(NAME)
 
 OBJS = $(SRCS:.c=.o)
 
-%.o: %.c 
-	@$(CC) -o $@ -c $< $(CFLAGS)
-
-$(NAME) : $(OBJS) $(LIBFT)
-	@ar rcs $(NAME) $(OBJS) $(LIBFT)
+$(NAME) : $(OBJS) $(LIBFT) $(FT_PRINTF)
+	@$(CC) $(CFLAGS) $(LIBFT) $(FT_PRINTF) $(OBJS) -o $(NAME)
 	@echo "\x1b[31m							\n\
 	⠀⠀⠀⠀⠀⠀⠀⠀⣺⣷⠙⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⣼⣖⠀⠀⠀\n\
 	⠀⠀⠀⠀⠀⠀⠀⣠⠟⣛⠼⠓⠿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⠞⠧⣜⠻⣅⠀⠀⠀⠀⠀⠀⠀\n\
@@ -49,7 +46,7 @@ $(NAME) : $(OBJS) $(LIBFT)
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠁ \x1b[41m"
 	@echo "make it"
-		
+
 $(LIBFT):
 	@make -C libft
 	@make -C libft bonus

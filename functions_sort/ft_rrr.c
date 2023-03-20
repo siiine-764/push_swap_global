@@ -6,13 +6,13 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:05 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/16 00:39:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:21:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_rra(t_stack *stck)
+void	rra(t_stack *stck)
 {
 	long long	down_a;
 	int			lg = stck->top_a;
@@ -24,10 +24,11 @@ void	ft_rra(t_stack *stck)
 		lg--;
 	}
 	stck->stack_a[0] = down_a;
-	printf("\n\t\t.rra.\t");
+		printf("rra\n");
+
 }
 
-void	ft_rrb(t_stack *stck)
+void	rrb(t_stack *stck)
 {
 	long long	down_b;
 	int			lg = stck->top_b;
@@ -39,12 +40,14 @@ void	ft_rrb(t_stack *stck)
 		lg--;
 	}
 	stck->stack_b[0] = down_b;
-	printf("\n\t\t.rrb.\t");
+		printf("rrb\n");
+
 }
 
-void	ft_rrr(t_stack *stck)
+void	rrr(t_stack *stck)
 {
 	ft_rra(stck);
 	ft_rrb(stck);
-	printf("\n\t\t.rrr.\t");
+		printf("rrr\n");
+
 }
