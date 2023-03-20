@@ -6,11 +6,25 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/17 16:48:26 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:10:22 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+int ft_sorted(long long *arr, int size)
+{
+	int i = 0;
+	while (i < size - 1)
+	{
+		if (arr[i] > arr[i + 1])
+			return 0;
+		else
+			i ++;
+	}
+	return 1;
+}
 
 void    print_stacks(t_stack *p)
 {
@@ -37,54 +51,14 @@ void    print_stacks(t_stack *p)
     printf("\n");
 }
 
-
-void	fill_stack_a(char **a, t_stack *s)
-{
-	s->top_a = 0;
-	while (a[s->top_a])
-	{
-		s->stack_a[s->top_a] = ft_atoi(a[s->top_a]);
-		if ((s->stack_a[s->top_a]) <= MIN_INT || s->stack_a[s->top_a] >= MAX_INT)
-			ft_message_error_integer();
-		s->top_a++;
-	}
-}
-
-char	**put_nbr_array(char **av, int ac, t_stack *p)
-{
-	char *tmp_num;
-	char **numbers;
-	int i;
-
-	i =1;
-	tmp_num = malloc(sizeof(char *) * (ac - 1));
-	p->size = 0;
-	while (av[i])
-	{
-		tmp_num = ft_strjoin((const char *)tmp_num, (const char *)av[i]);
-		tmp_num = ft_strjoin((const char *)tmp_num, " ");
-		i++;
-		p->size++;
-	}
-	numbers = ft_split((const char *)tmp_num, ' ');
-	// free(tmp_num);
-	return (numbers);
-}
-
-long long find_pos_extra(long long *chaos, long long nbr)
+long long ft_find_local(long long *chaos, long long nbr)
 {
 	int i;
 
-	i = 0;
-	while (i < 500)
-	{
-		if (chaos[i] == nbr){
-			printf("--> find :%d\n", i);
-			printf("--> find chaos :%lld\n", chaos[i]);
+	i = -1;
+	while (++i < 500)
+		if (chaos[i] == nbr)
 			return (i);
-		}
-		i++;
-	}
 	return (-1);
 }
 
@@ -128,12 +102,12 @@ void	ft_check_range(t_stack *s)
 	int y = 0;
 	while (chaos[y])
 	{
-		printf("chaos[%d] = %lld\n", y, chaos[y]);
+		// printf("chaos[%d] = %lld\n", y, chaos[y]);
 		y++;
 	}
 	while (s->top_a >= 0)
 	{
-		sopa = find_pos_extra(chaos, s->stack_a[0]);
+		sopa = ft_find_local(chaos, s->stack_a[0]);
 		if (sopa >= range && sopa <= 30 + range)
 		{
 			ft_pb(s);
@@ -145,12 +119,8 @@ void	ft_check_range(t_stack *s)
 			ft_rb(s);
 			range++;
 		}
-		else if (sopa > 30 + range)
-		{
+		else if (sopa >= 30 + range) 
 			ft_ra(s);
-		}
-		printf("\ntop_a = %lld\n", s->stack_a[0]);
-		usleep(100000);
 	}
 }
 
@@ -175,6 +145,14 @@ int main(int ac, char **av)
 	// int	lg;
 	ft_check_range(&s);
 	print_stacks(&s);
-	printf("everything right\n");
+	ft_push_stack_a(&s);
+	print_stacks(&s);
+	int i = ft_sorted(s.stack_a, s.top_a);
+	if (i == 0)
+	{
+		printf("everything right\n");
+	}
+	else
+		printf("Keine Sorgen :] Sie haben irgendwas nicht gut\n");
 	return (0);
 }

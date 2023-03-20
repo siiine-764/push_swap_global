@@ -17,21 +17,21 @@ OBJ = $(SRC:.c=.o)
 OBJ_B = $(SRC_B:.c=.o)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 
 %.o: %.c $(DEPS)
-	$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) -o $@ -c $< $(CFLAGS)
 
 all:	$(NAME)
 
 clean:
-	rm -f *.o
+	@rm -f *.o
 
 bonus: $(NAME) $(OBJ_B)
-	ar rcs $(NAME) $(OBJ_B)
+	@ar rcs $(NAME) $(OBJ_B)
 
 fclean: clean
-	rm -f *.a
+	@rm -f *.a
 
 re: fclean $(NAME)
 

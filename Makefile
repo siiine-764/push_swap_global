@@ -9,14 +9,19 @@ SRCS =	./utils/ft_message_errors.c\
 		./functions_sort/ft_pp.c\
 		./functions_sort/ft_rr.c\
 		./functions_sort/ft_rrr.c\
+		utils/ft_fill_stck.c\
+		./utils/ft_sort_a.c\
 		./utils/functions_help_to_sorting.c\
 
 all: $(NAME)
 
 OBJS = $(SRCS:.c=.o)
 
+%.o: %.c 
+	@$(CC) -o $@ -c $< $(CFLAGS)
+
 $(NAME) : $(OBJS) $(LIBFT)
-		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@ar rcs $(NAME) $(OBJS) $(LIBFT)
 	@echo "\x1b[31m							\n\
 	⠀⠀⠀⠀⠀⠀⠀⠀⣺⣷⠙⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⣼⣖⠀⠀⠀\n\
 	⠀⠀⠀⠀⠀⠀⠀⣠⠟⣛⠼⠓⠿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⠞⠧⣜⠻⣅⠀⠀⠀⠀⠀⠀⠀\n\
@@ -43,7 +48,7 @@ $(NAME) : $(OBJS) $(LIBFT)
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢆⠘⡟⠲⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠗⢺⠃⡰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠁ \x1b[41m"
-	@echo "winner"
+	@echo "make it"
 		
 $(LIBFT):
 	@make -C libft
@@ -58,3 +63,5 @@ fclean: clean
 	@make -C libft fclean
 	@rm -f $(NAME)
 	@echo "fclean push_swap"
+
+re: fclean $(NAME)
