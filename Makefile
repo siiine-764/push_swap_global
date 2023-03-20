@@ -48,7 +48,7 @@ $(NAME) : $(OBJS) $(LIBFT) $(FT_PRINTF)
 	@echo "make it"
 
 $(LIBFT):
-	@make -C libft
+	@make -C 
 	@make -C libft bonus
 
 clean:
