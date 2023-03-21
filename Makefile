@@ -48,7 +48,7 @@ $(NAME) : $(OBJS) $(LIBFT) $(FT_PRINTF)
 	@echo "make it"
 
 $(LIBFT):
-	@make -C 
+	@make -C libft
 	@make -C libft bonus
 
 clean:
@@ -62,3 +62,5 @@ fclean: clean
 	@echo "fclean push_swap"
 
 re: fclean $(NAME)
+
+.PHONY: clean fclean re all
