@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:01:54 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/20 13:13:15 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/24 23:08:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void ft_push_stack_a(t_stack *stck)
 	long long	location;
 	long long	biger;
 
-	while (stck->top_b > -1)
+	while (stck->top_b >= 0)
 	{
 		biger = ft_find_biger(stck);
 		location = ft_find_location(stck, biger);
@@ -51,12 +51,14 @@ void ft_push_stack_a(t_stack *stck)
 		{
 			while (!(stck->stack_b[0] == biger))
 				rb(stck);
+			// printf("to push%lld\n",stck->stack_b[0]);
 			pa(stck);
 		}
 		else if (location > (stck->top_b / 2))
 		{
 			while (!(stck->stack_b[0] == biger))
 				rrb(stck);
+			// printf("to push%lld\n",stck->stack_b[0]);
 			pa(stck);
 		}
 	}

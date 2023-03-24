@@ -6,13 +6,13 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:37:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/20 13:21:16 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/24 23:21:00 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_stack *stck)
+void	rra(t_stack *stck)
 {
 	long long top_a;
 	top_a = stck->stack_a[stck->top_a];
@@ -28,7 +28,7 @@ void	ra(t_stack *stck)
 
 }
 
-void	rb(t_stack *stck)
+void	rrb(t_stack *stck)
 {
 	long long top_b;
 	
