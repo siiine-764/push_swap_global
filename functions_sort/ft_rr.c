@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:37:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/30 01:32:03 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:13:12 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ra(t_stack *stck)
 {
 	long long top_a;
-	top_a = stck->stack_a[stck->top_a];
 
+	top_a = stck->stack_a[stck->top_a];
 	int	lg = stck->top_a + 1;
 	while (lg--)
 	{
@@ -39,7 +39,7 @@ void	rb(t_stack *stck)
 		stck->stack_b[lg] = stck->stack_b[lg - 1];
 	}
 	stck->stack_b[0] =top_b;
-		printf("rb\n");
+	printf("rb\n");
 
 }
 

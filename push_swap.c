@@ -6,13 +6,12 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/30 01:47:49 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/31 01:21:04 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//c
 int ft_sorted(long long *arr, int size)
 {
 	int i = 0;
@@ -21,7 +20,7 @@ int ft_sorted(long long *arr, int size)
 		if (arr[i] > arr[i + 1])
 			return 0;
 		else
-			i ++;
+			i++;
 	}
 	return 1;
 }
@@ -32,27 +31,17 @@ void    print_stacks(t_stack *p)
 
     printf("\n");
     i = 0;
-	int tp = p->top_a;
-	printf("%d---", tp);
+	int tp = p->top_a + 1;
 	while (tp--)
-    {
-    // tp--;
         printf("\x1b[38;2;207;75;14m\t| %lld |\n", p->stack_a[tp]);
-	}
 	printf("\t-----\n");
     printf("\t  a\n");
-	// 	 tp = p->top_b;
-
-	// printf("\n\n");
-    // while (tp)
-    // {
-    //     printf("\x1b[38;2;207;75;14m\t| %lld |\t\n", p->stack_b[tp]);
-    //     // i++;
-	// 	tp--;
-    // }
-    // printf("\t----\n");
-    // printf("\t  b  \n");
-    // printf("\n");
+	tp = p->top_b + 1;
+	printf("\n\n");
+    while (tp--)
+        printf("\x1b[38;2;207;75;14m\t| %lld |\t\n", p->stack_b[tp]);
+    printf("\t----\n");
+    printf("\t  b  \n");
 }
 
 long long ft_find_local(long long *chaos, long long nbr)
@@ -75,35 +64,32 @@ long long	*ft_sort(t_stack *stck)
 {
 	int	i;
 	long long	nbr;
+	long long	*chaos;
 	//chic neat
 
-	// printf("%lld", stck->stack_a[])
-	stck->chaos = malloc(sizeof(long long *) * (stck->top_a + 1));
-	if (!stck->chaos)
+	chaos = malloc(sizeof(long long *) * (stck->top_a + 1));
+	if (!chaos)
 		printf("Error VIP : cette array n\'est pas remplir\n");
 	i = 0;
-	while (i < stck->top_a + 1)
+	while (i < stck->top_a)
 	{
-		stck->chaos[i] = stck->stack_a[i];
-		// printf("%lld\n", stck->chaos[i]);
+		chaos[i] = stck->stack_a[i];
 		i++;
 	}
 	i = 0;
-	while (i < stck->top_a + 1)
+	while (i < stck->top_a - 1)
 	{
-		// printf("--> chaos :%lld--<\n", stck->chaos[i]);
-		if (stck->chaos[i] < stck->chaos[i + 1])
+		if (chaos[i] < chaos[i + 1])
 		{
-			nbr = stck->chaos[i];
-			stck->chaos[i] = stck->chaos[i + 1];
-			stck->chaos[i + 1] = nbr;
-			// printf("--> chaos :%lld\n", nbr);
+			nbr = chaos[i];
+			chaos[i] = chaos[i + 1];
+			chaos[i + 1] = nbr;
 			i = 0;
 		}
 		else
 			i++;
 	}
-	return (stck->chaos);
+	return (chaos);
 }
 
 void	ft_check_range(t_stack *s)
@@ -116,19 +102,18 @@ void	ft_check_range(t_stack *s)
 	{
 		sopa = ft_find_local(chaos, s->stack_a[0]);
 		// printf("%lld", sopa);
-		if (sopa >= range && sopa <= 15 + range)
+		if (sopa >= range && sopa <= 30 + range)
 		{
-			printf("%lld", s->stack_a[0]);
 			pb(s);
 			range++;
 		}
-		 if (sopa < range)
+		else if (sopa < range)
 		{
 			pb(s);
 			rb(s);
 			range++;
 		}
-		 if (sopa > 15 + range) 
+		else if (sopa > 30 + range) 
 			ra(s);
 	}
 }
@@ -205,21 +190,13 @@ int main(int ac, char **av)
 	s.stack_b = malloc(sizeof(long long) * (s.size + 1));
 	fill_stack_a(nmbr, &s);
 	s.top_a--;
-	// printf("nmbr0->%lld",s.stack_a[0]);
-	// ra(&s);
-	// printf("nmbr0->%lld",s.stack_a[0]);
+	// ft_check_range(&s);
 	// print_stacks(&s);
-	// int	lg;
-	// printf("---> %lld", s.stack_a[0]);
-	ft_check_range(&s);
-	print_stacks(&s);
 	// ft_push_stack_a(&s);
-	// while(1);
-	// print_stacks(&s);
-	// rra(&s);
-	// print_stacks(&s);
-	// 	ra(&s);
-	// print_stacks(&s);
+	print_stacks(&s);
+
+	ft_sort_three(&s);
+	print_stacks(&s);
 	// long long nbr[] = {1, 2, 5, 6, 55, 54};
 	// printf("%lld", ft_find_local(nbr, 9));
 	// int i = ft_sorted(s.stack_a, s.top_a);

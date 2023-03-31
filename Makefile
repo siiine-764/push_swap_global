@@ -12,6 +12,7 @@ SRCS =	./utils/ft_message_errors.c\
 		utils/ft_fill_stck.c\
 		./utils/ft_sort_a.c\
 		./utils/functions_help_to_sorting.c\
+		./sorting/ft_sort_min.c
 
 all: $(NAME)
 

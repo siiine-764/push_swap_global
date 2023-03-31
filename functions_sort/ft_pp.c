@@ -6,13 +6,13 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:42:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/20 13:20:40 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:12:38 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void pb(t_stack *stck)
+void	pb(t_stack *stck)
 {
 	long long	pop_a;
 	int			i = 0;

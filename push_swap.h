@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/29 23:14:06 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/03/31 00:38:30 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct stack
 {
 	long long	*stack_b;
 	long long	*stack_a;
-	long long	*chaos;
+	// long long	*chaos;
 	int			top_a;
 	int			top_b;
 	int			size;
@@ -52,6 +52,7 @@ void		ft_rrb(t_stack *stck);
 void		ft_sb(t_stack *s);
 void		ft_sa(t_stack *s);
 // functions to sorting //
+void		ft_sort_three(t_stack *s);
 void		ft_check_range(t_stack *stck);
 long long	*ft_sort(t_stack *stck);
 long long	ft_find_biger(t_stack *stck);
