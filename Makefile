@@ -3,16 +3,18 @@ CC		= gcc
 CFLAGS 	= -Wall -Wextra -Werror
 LIBFT	= libft/libft.a
 
-SRCS =	./utils/ft_message_errors.c\
+SRCS =	messages/ft_message_errors.c\
 		push_swap.c\
-		./functions_sort/ft_ss.c\
-		./functions_sort/ft_pp.c\
-		./functions_sort/ft_rr.c\
-		./functions_sort/ft_rrr.c\
-		utils/ft_fill_stck.c\
-		./utils/ft_sort_a.c\
-		./utils/functions_help_to_sorting.c\
-		./sorting/ft_sort_min.c
+		rules/ft_ss.c\
+		rules/ft_pp.c\
+		rules/ft_rr.c\
+		rules/ft_rrr.c\
+		fill_stack/ft_fill_stck.c\
+		rules/ft_tools_rules.c\
+		sorting/ft_sort_min.c\
+		sorting/ft_tools_sort.c\
+		sorting/ft_sort_big.c\
+		check/ft_check_input.c\
 
 all: $(NAME)
 

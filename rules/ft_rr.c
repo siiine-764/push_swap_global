@@ -1,47 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pp.c                                            :+:      :+:    :+:   */
+/*   ft_rr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 21:42:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/30 21:12:38 by mayache-         ###   ########.fr       */
+/*   Created: 2023/03/13 21:37:56 by mayache-          #+#    #+#             */
+/*   Updated: 2023/04/01 00:55:36 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pb(t_stack *stck)
+void	ra(t_stack *stck)
 {
-	long long	pop_a;
-	int			i = 0;
+	long long	down_a;
+	int i = 0;
+	int			lg = stck->top_a;
 
-	pop_a = stck->stack_a[0];
-	while (stck->stack_a[i])
+	down_a = stck->stack_a[0];
+	while (i < lg)
 	{
 		stck->stack_a[i] = stck->stack_a[i + 1];
 		i++;
 	}
-	stck->top_a--;
-	stck->top_b++;
-	stck->stack_b[stck->top_b] = pop_a;
-	printf("pb\n");
+	stck->stack_a[stck->top_a] = down_a;
+		printf("ra\n");
 }
 
-void	pa(t_stack *stck)
+void	rb(t_stack *stck)
 {
-	long long	pop_b;
+	long long	down_b;
 	int			i = 0;
+	int			lg = stck->top_b;
 
-	pop_b = stck->stack_b[0];
-	while (stck->stack_b[i])
+	down_b = stck->stack_b[0];
+	while (i < lg)
 	{
 		stck->stack_b[i] = stck->stack_b[i + 1];
 		i++;
 	}
-	stck->top_b--;
-	stck->top_a++;
-	stck->stack_a[stck->top_a] = pop_b;
-	printf("pa\n");
+	stck->stack_b[stck->top_b] = down_b;
+	printf("rb\n");
+}
+
+void	rr(t_stack *stck)
+{
+	ft_ra(stck);
+	ft_rb(stck);
+	printf("rr\n");
+
 }

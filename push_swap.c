@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/31 01:21:04 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:36:26 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,61 +118,6 @@ void	ft_check_range(t_stack *s)
 	}
 }
 
-void	check_argv(int argc, char **argv)
-{
-	int		i;
-	char	*str;
-
-	i = 1;
-	while (i != argc)
-	{
-		str = argv[i];
-		while (*str)
-		{
-			if (*str == '-' || *str == '+' )
-			{
-				str++;
-				if (*str < '0' || *str > '9')
-				{
-					write(1, "error VIP\n", 10);
-				exit(1);
-					
-				}
-			}
-			else if (*str != ' ' && (*str < '0' || *str > '9'))
-			{
-				write(1, "error VIP\n", 10);
-				exit(1);
-			}
-			if (*str)
-				str++;
-		}
-		i++;
-	}
-}
-
-void	ft_check_nbr(char **av)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (av[i])
-	{
-		j =  i + 1;
-		while(av[j])
-		{
-			if (ft_atoi(av[i]) == ft_atoi(av[j]))
-			{
-				write(1, "Error VIP : Double number\n", 26);
-				exit(1);
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
 int main(int ac, char **av)
 {
 	char	**nmbr;
@@ -193,10 +138,12 @@ int main(int ac, char **av)
 	// ft_check_range(&s);
 	// print_stacks(&s);
 	// ft_push_stack_a(&s);
-	print_stacks(&s);
-
-	ft_sort_three(&s);
-	print_stacks(&s);
+	//  ft_sort_three(&s);
+	// ft_sort_four(&s);
+	ft_sort_five(&s);
+	// print_stacks(&s);
+	// printf("\n---- %d ---", ft_find_minor(&s));
+	// print_stacks(&s);
 	// long long nbr[] = {1, 2, 5, 6, 55, 54};
 	// printf("%lld", ft_find_local(nbr, 9));
 	// int i = ft_sorted(s.stack_a, s.top_a);

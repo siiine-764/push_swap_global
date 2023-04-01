@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/20 12:22:15 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:12:47 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	fill_stack_a(char **a, t_stack *s)
 	while (a[s->top_a])
 	{
 		s->stack_a[s->top_a] = ft_atoi(a[s->top_a]);
-		if ((s->stack_a[s->top_a]) <= MIN_INT || s->stack_a[s->top_a] >= MAX_INT)
+		if ((s->stack_a[s->top_a]) < MIN_INT || s->stack_a[s->top_a] > MAX_INT)
 			ft_message_error_integer();
 		s->top_a++;
 	}

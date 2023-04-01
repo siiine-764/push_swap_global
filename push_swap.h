@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/31 00:38:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:44:57 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct stack
 
 /// ft_check_input //
 void	ft_check_input(char **av);
+void	ft_check_nbr(char **av);
 void	check_argv(int argc, char **argv);
 /// ft_sort //
 void		pb(t_stack *t_stck);
@@ -52,12 +53,16 @@ void		ft_rrb(t_stack *stck);
 void		ft_sb(t_stack *s);
 void		ft_sa(t_stack *s);
 // functions to sorting //
+int			ft_find_minor(t_stack *s);
 void		ft_sort_three(t_stack *s);
+void		ft_sort_four(t_stack *s);
+void		ft_sort_five(t_stack *s);
 void		ft_check_range(t_stack *stck);
 long long	*ft_sort(t_stack *stck);
 long long	ft_find_biger(t_stack *stck);
 long long	ft_find_location(t_stack *stck, long long nbr);
 void		ft_push_stack_a(t_stack *stck);
+
 /// ft_fill_stacks //
 char	**put_nbr_array(char **av, int ac, t_stack *p);
 void	fill_stack_a(char **a, t_stack *s);

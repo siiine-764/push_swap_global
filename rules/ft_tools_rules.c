@@ -1,18 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rr.c                                            :+:      :+:    :+:   */
+/*   ft_tools_rules.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 21:37:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/30 21:13:12 by mayache-         ###   ########.fr       */
+/*   Created: 2023/04/01 00:52:41 by mayache-          #+#    #+#             */
+/*   Updated: 2023/04/01 01:20:45 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_stack *stck)
+void	ft_ra(t_stack *stck)
+{
+	long long	down_a;
+	int i = 0;
+	int			lg = stck->top_a;
+
+	down_a = stck->stack_a[0];
+	while (i < lg)
+	{
+		stck->stack_a[i] = stck->stack_a[i + 1];
+		i++;
+	}
+	stck->stack_a[stck->top_a] = down_a;
+		printf("ra\n");
+
+}
+
+void	ft_rb(t_stack *stck)
+{
+	long long	down_b;
+	int			i = 0;
+	int			lg = stck->top_b;
+
+	down_b = stck->stack_b[0];
+	while (i < lg)
+	{
+		stck->stack_b[i] = stck->stack_b[i + 1];
+		i++;
+	}
+	stck->stack_b[stck->top_b] = down_b;
+	printf("rb\n");
+
+}
+
+void	ft_rra(t_stack *stck)
 {
 	long long top_a;
 
@@ -23,12 +57,12 @@ void	ra(t_stack *stck)
 		stck->stack_a[lg] = stck->stack_a[lg - 1];
 	}
 	stck->stack_a[0] =top_a;
-	printf("ra\n");
+	printf("rra\n");
 
 
 }
 
-void	rb(t_stack *stck)
+void	ft_rrb(t_stack *stck)
 {
 	long long top_b;
 	
@@ -39,14 +73,6 @@ void	rb(t_stack *stck)
 		stck->stack_b[lg] = stck->stack_b[lg - 1];
 	}
 	stck->stack_b[0] =top_b;
-	printf("rb\n");
-
-}
-
-void	rr(t_stack *stck)
-{
-	ft_ra(stck);
-	ft_rb(stck);
-	printf("rr\n");
+	printf("rrb\n");
 
 }

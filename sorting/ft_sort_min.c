@@ -6,57 +6,87 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:36:48 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/31 01:55:08 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:46:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long long ft_find_minor(t_stack *s)
-{
-	int k = -1;
-	int minor = -1;
-	
-	minor = s->stack_a[0];
-
-	while (++k < s->top_a + 1)
-	{
-		if (minor < s->stack_a[k])
-		{
-			minor = s->stack_a[k];
-			// index_minor = k;
-			// printf("----%d\n", index_minor);
-		}
-	}
-	return  (minor);
-}
 void	ft_sort_three(t_stack *s)
 {
-	int i = -1;
-	// int j = -1;
-	// int index = -1;
-	long long biger;
-	long long minor;
-
-
-	 i = -1;
-
-	while (++i < s->top_a + 1)
+	if ((s->stack_a[0] < s->stack_a[1])
+		&& (s->stack_a[1] > s->stack_a[2]))
 	{
-		biger = ft_find_biger(s);
-		minor = ft_find_minor(s);
-	// k = 0;
-	// 	if (biger == s->stack_a[index] && index == 0)
-	// 			ra(s);
-	// else if (biger == s->stack_a[index] && index == 1)
-	// {
-	// 	sa(s);
-	// 	ra(s);
-	// }
-		
-	// if (minor == s->stack_a[index_minor] && index_minor == 1)
-	// 	sa(s);
-	// else if (minor == s->stack_a[index_minor] && index_minor == 2)
-	// 	rra(s);
+		rra(s);
+		if (s->stack_a[0] > s->stack_a[1])
+			sa(s);
 	}
+	if ((s->stack_a[0] > s->stack_a[1]))
+	{
+		 if (s->stack_a[0] > s->stack_a[2])
+		 {
+			// printf("---> [0] %lld\n",s->stack_a[0]);
+			// printf("---> [1] %lld\n",s->stack_a[1]);
+			// printf("---> [2] %lld\n",s->stack_a[2]);
+			ra(s);
+		 }
+		 if (s->stack_a[1] > s->stack_a[2])
+		 {
+			// printf("---> [0] %lld\n",s->stack_a[0]);
+			// printf("---> [1] %lld\n",s->stack_a[1]);
+			// printf("---> [2] %lld\n",s->stack_a[2]);
+			ra(s);
+		 }
+		 if (s->stack_a[0] > s->stack_a[1])
+		 {
+			sa(s);
+			// printf("---> [0] %lld\n",s->stack_a[0]);
+			// printf("---> [1] %lld\n",s->stack_a[1]);
+			// printf("---> [2] %lld\n",s->stack_a[2]);
+		 }
+		// if (s->stack_a[0] > s->stack_a[2])
+		// 	rra(s);
+	}
+}
+
+void	ft_sort_four(t_stack *s)
+{
+	int index_minor;
+	int	nbr_small;
+
+	index_minor = ft_find_minor(s);
+	nbr_small = s->stack_a[index_minor];
+	// printf("\nindex : %d .  ", index_minor);
+	// printf("nbr : %d", nbr_small);
+	while (s->stack_a[0] != nbr_small)
+	{
+		if (index_minor <= ((s->top_a ) / 2))
+			ra(s);
+		else if (index_minor > ((s->top_a) / 2))
+			rra(s);
+	}
+	pb(s);
+	ft_sort_three(s);
+	pa(s);
+}
+
+void	ft_sort_five(t_stack *s)
+{
+	int index_minor;
+	int	nbr_small;
+
+	index_minor = ft_find_minor(s);
+	nbr_small = s->stack_a[index_minor];
+	// printf("\nindex : %d .  ", index_minor);
+	// printf("nbr : %d", nbr_small);
+	while (s->stack_a[0] != nbr_small)
+	{
+		if (index_minor <= ((s->top_a ) / 2))
+			ra(s);
+		else if (index_minor > ((s->top_a) / 2))
+			rra(s);
+	}
+	pb(s);
+	ft_sort_four(s);
+	pa(s);
 }

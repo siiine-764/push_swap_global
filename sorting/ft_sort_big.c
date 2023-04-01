@@ -1,42 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_a.c                                        :+:      :+:    :+:   */
+/*   ft_sort_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 17:01:54 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/30 23:28:01 by mayache-         ###   ########.fr       */
+/*   Created: 2023/04/01 00:46:33 by mayache-          #+#    #+#             */
+/*   Updated: 2023/04/01 00:47:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-long long ft_find_biger(t_stack *stck)
-{
-	int			i;
-	long long	biger;
-
-	biger = stck->stack_b[0];
-	i = -1;
-	while(++i < stck->top_b + 1)
-	{
-		if (biger < stck->stack_b[i])
-			biger = stck->stack_b[i];	
-	}
-	return (biger);
-}
-
-long long ft_find_location(t_stack *stck, long long nbr)
-{
-	int	i;
-
-	i = -1;
-	while (++i < stck->top_b)
-		if (stck->stack_b[i] == nbr)
-			return (i);
-	return (-1);
-}
 
 void ft_push_stack_a(t_stack *stck)
 {
