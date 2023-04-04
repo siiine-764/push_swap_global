@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 
 # Define email addresses to use
-to_address = "ayacheyassine2000@gmail.com"
+to_address = "outlook_43C1244BDCEC7FF4@outlook.com"
 from_address = "42events@1337.ma"
 
 # Define the message object
@@ -14,8 +14,18 @@ msg['To'] = to_address
 msg['Subject'] = "1337"
 
 # Add body text to the email
-body = "you've been absorbed by blackhole nod 3la slmatek"
-msg.attach(MIMEText(body, 'plain'))
+# body = 'This is a test email.'
+# msg.attach(MIMEText(body, 'plain'))
+
+# read the contents of the HTML file
+with open('./file.html', 'r') as f:
+    html = f.read()
+
+# create the HTML message object
+html_message = MIMEText(html, 'html')
+
+# attach the HTML message object to the main message object
+msg.attach(html_message)
 
 # Open the file to be attached
 #filename = "attachment.txt"
@@ -33,8 +43,8 @@ msg.attach(MIMEText(body, 'plain'))
 # Define SMTP server settings
 smtp_server = "smtp-relay.sendinblue.com"
 smtp_port = 587
-smtp_username = ""
-smtp_password = ""
+smtp_username = "ayacheyassine2000@gmail.com"
+smtp_password = "MQdTjwNLnF47s9xK"
 
 # Create an SMTP object and login to the server
 smtp = smtplib.SMTP(smtp_server, smtp_port)
