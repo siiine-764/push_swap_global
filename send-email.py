@@ -34,7 +34,7 @@ msg.attach(MIMEText(body, 'plain'))
 smtp_server = "smtp-relay.sendinblue.com"
 smtp_port = 587
 smtp_username = ""
-smtp_password = "MQdTjwNLnF47s9xK"
+smtp_password = ""
 
 # Create an SMTP object and login to the server
 smtp = smtplib.SMTP(smtp_server, smtp_port)
