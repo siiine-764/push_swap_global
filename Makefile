@@ -15,6 +15,7 @@ SRCS =	messages/ft_message_errors.c\
 		sorting/ft_tools_sort.c\
 		sorting/ft_sort_big.c\
 		check/ft_check_input.c\
+		check/ft_check_sorted.c\
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:42:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/31 18:35:39 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/04 01:09:02 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	pb(t_stack *stck)
 	stck->top_a--;
 	stck->top_b++;
 	stck->stack_b[stck->top_b] = pop_a;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }
 
 void	pa(t_stack *stck)
@@ -43,5 +43,5 @@ void	pa(t_stack *stck)
 	stck->top_b--;
 	stck->top_a++;
 	stck->stack_a[stck->top_a] = pop_b;
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }

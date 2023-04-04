@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:36:48 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/01 01:46:33 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:05:09 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,16 @@ void	ft_sort_three(t_stack *s)
 
 void	ft_sort_four(t_stack *s)
 {
-	int index_minor;
-	int	nbr_small;
+	long long index_minor;
+	long long	nbr_small;
 
 	index_minor = ft_find_minor(s);
 	nbr_small = s->stack_a[index_minor];
-	// printf("\nindex : %d .  ", index_minor);
-	// printf("nbr : %d", nbr_small);
+	// printf("\nindex : %lld .  ", index_minor);
+	// printf("nbr : %lld", nbr_small);
 	while (s->stack_a[0] != nbr_small)
 	{
+		// printf("%lld", nbr_small);
 		if (index_minor <= ((s->top_a ) / 2))
 			ra(s);
 		else if (index_minor > ((s->top_a) / 2))

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:37:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/01 00:55:36 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/04 01:08:36 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ra(t_stack *stck)
 		i++;
 	}
 	stck->stack_a[stck->top_a] = down_a;
-		printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack *stck)
@@ -41,13 +41,12 @@ void	rb(t_stack *stck)
 		i++;
 	}
 	stck->stack_b[stck->top_b] = down_b;
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack *stck)
 {
 	ft_ra(stck);
 	ft_rb(stck);
-	printf("rr\n");
-
+	write(1, "rr\n", 3);
 }
