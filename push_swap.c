@@ -12,6 +12,27 @@
 
 #include "push_swap.h"
 
+void	free_number(char **nbr, int i)
+{
+	while (nbr[i])
+	{
+		free(nbr[i]);
+		i++;
+	}
+}
+
+void	free_all(t_stacks *s, char **nbr, int i, int sign)
+{
+	free(s->stck_a);
+	free(s->stck_b);
+	free(s->top_a);
+	free(s->top_b);
+	free(s);
+	if (sign)
+		free_number(nbr, i);
+	//free(nbr);
+}
+
 void    print_stacks(t_stack *p)
 {
     int    i;
@@ -65,6 +86,7 @@ int main(int ac, char **av)
 		else if (s.len > 100  && s.len <= 500)
 			ft_extra_big_sort(&s);
 		// print_stacks(&s);
+		free_all(&s, nmbr, 0, 0);
 	}
 	return (0);
 }
