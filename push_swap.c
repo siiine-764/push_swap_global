@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/08 00:36:08 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/08 01:35:58 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	free_number(char **nbr, int i)
 	}
 }
 
-void	free_all(t_stacks *s, char **nbr, int i, int sign)
+void	free_all(t_stack *s, char **nbr, int i, int sign)
 {
-	free(s->stck_a);
-	free(s->stck_b);
-	free(s->top_a);
-	free(s->top_b);
+	free(s->stack_a);
+	free(s->stack_b);
+	// free(s->top_a);
+	// free(s->top_b);
 	free(s);
 	if (sign)
 		free_number(nbr, i);
@@ -87,7 +87,7 @@ int main(int ac, char **av)
 		// else if (s.len > 100  && s.len <= 500)
 		// 	ft_extra_big_sort(&s);
 		// print_stacks(&s);
-		free_all(&s, nmbr, 0, 0);
+		// free_all(&s, nmbr, 0, 0);
 	}
 	return (0);
 }
