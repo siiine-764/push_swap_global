@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/03 23:20:47 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/08 01:08:01 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct stack
 {
 	long long	*stack_b;
 	long long	*stack_a;
+	long long	*stack;
 	// long long	*chaos;
 	int			top_a;
 	int			top_b;

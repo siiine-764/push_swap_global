@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:46:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/04 01:04:04 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/08 01:30:34 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,32 @@ void ft_push_a(t_stack *s)
 	long long	location;
 	long long	biger;
 
-	while (s->top_b)
+	while (s->top_b != 0)
 	{
 		biger = ft_find_biger(s);
 		location = ft_find_location(s, biger);
-		// printf("biger : %lld\n", biger);
 		// printf("find location : %lld\n", location);
+			// printf("biggest :%lld\n", biger);
+		// printf("--> location :%lld\n",location);
+		// printf("--> size :%d \n",s->top_b / 2);
 		if (location <= (s->top_b / 2))
 		{
-			if (s->stack_b[0] == biger)
-				pa(s);
-			else
-			rb(s);
+			while(!(s->stack_b[0] == biger))
+			{
+		// printf("biger : %lld\n", biger);
+		// printf("location : %lld\n", location);
+		// printf("s->stack_b[0] : %lld\n", s->stack_b[0]);
+				rb(s);
+			}
+			pa(s);
 		}
 		else if (location > (s->top_b / 2))
 		{
-			if (s->stack_b[0] == biger)
-				pa(s);
-			else
-			rrb(s);
+			while(!(s->stack_b[0] == biger))
+			{
+				rrb(s);
+			}
+			pa(s);
 		}
 	}
 }
@@ -78,12 +85,12 @@ void	ft_big_sort(t_stack *s)
 	long long	sopa = 0; 
 	long long	*chaos = ft_sort(s);
 
+	
+	
 	while (s->top_a != 0)
 	{
-		// printf("A- %lld\n", chaos[s->top_a]);
-		// printf("A- %lld\n", s->stack_a[0]);
 		sopa = ft_find_local(chaos, s->stack_a[0]);
-		// printf("%lld\n", sopa);
+		// printf("%lld\n",sopa);
 		if (sopa >= range && sopa <= 15 + range)
 		{
 			pb(s);
@@ -97,6 +104,7 @@ void	ft_big_sort(t_stack *s)
 		}
 		else if (sopa > 15 + range) 
 			ra(s);
+		// printf("range :%d", range);
 	}
 	ft_push_a(s);
 }
@@ -107,7 +115,7 @@ void	ft_extra_big_sort(t_stack *s)
 	long long	sopa = 0; 
 	long long	*chaos = ft_sort(s);
 
-	while (s->top_a != 0)
+	while (s->top_a)
 	{
 		sopa = ft_find_local(chaos, s->stack_a[0]);
 		// printf("%lld", sopa);

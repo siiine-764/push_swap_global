@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/04 01:03:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/08 00:36:08 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int ac, char **av)
 
 	check_argv(ac, av);
 	// ft_check_same_nbr(av);
-	nmbr = put_nbr_array(av, ac, &s);
+	nmbr = put_nbr_array(av, ac, &s); 
 	ft_check_nbr(nmbr);
 	s.stack_a = malloc(sizeof(long long) * (s.size + 1));
 	s.stack_b = malloc(sizeof(long long) * (s.size + 1));
@@ -54,16 +54,17 @@ int main(int ac, char **av)
 		printf("it\'s sorted\n");
 	else
 	{
-		if (s.len == 3 || s.len == 2)
-			ft_sort_three(&s);
-		else if (s.len == 4)
-			ft_sort_four(&s);
-		else if (s.len == 5)
-			ft_sort_five(&s);
-		else if (s.len > 5  && s.len <= 100)
-			ft_big_sort(&s);
-		else if (s.len > 100  && s.len <= 500)
-			ft_extra_big_sort(&s);
+		// if (s.len == 3 || s.len == 2)
+		// 	ft_sort_three(&s);
+		// else if (s.len == 4)
+		// 	ft_sort_four(&s);
+		// else if (s.len == 5)
+			// ft_sort_five(&s);
+		// else 
+		// if (s.len > 5  && s.len <= 100)
+		ft_big_sort(&s);
+		// else if (s.len > 100  && s.len <= 500)
+		// 	ft_extra_big_sort(&s);
 		// print_stacks(&s);
 	}
 	return (0);
