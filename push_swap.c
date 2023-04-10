@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/08 01:35:58 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/10 01:18:11 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,60 @@ void    print_stacks(t_stack *p)
     printf("\t  b  \n");
 }
 
+long long ft_pop(t_stack *s)
+{
+	long long el;
+	// printf("--->pop : %lld\n", s->stack_b[s->top_b]);
+	el= s->stack_b[s->top_b];
+	// printf("--->pop : %lld\n", el);
+	s->top_b--;
+	return el;
+}
+
+long long ft_pop_a(t_stack *s)
+{
+	long long el;
+	// printf("--->pop : %lld\n", s->stack_b[s->top_b]);
+	el= s->stack_a[s->top_a];
+	// printf("--->pop : %lld\n", el);
+	s->top_a--;
+	return el;
+}
+void push(t_stack *s, long long el)
+{
+	s->top_a++;
+	s->stack_a[s->top_a] = el;
+}
+
+// void pa(t_stack *s)
+// {
+// 	long long store;
+
+// 	store = ft_pop(s);
+// 	push(s, store);
+// 	printf("pa\n");
+// }
+
+void push_b(t_stack *s, long long el)
+{
+	// if (s->top_a == - 1)
+	// {
+	// 	printf("Error VIP: s overflow");
+	// 	exit(1);
+	// }
+	s->top_b++;
+	s->stack_b[s->top_b] = el;
+}
+// void pb(t_stack *s)
+// {
+// 	long long store;
+
+// 	store = ft_pop_a(s);
+// 	// printf("--> %lld", store);
+// 	push_b(s, store);
+// 	printf("pb\n");
+// }
+
 int main(int ac, char **av)
 {
 	char	**nmbr;
@@ -68,8 +122,7 @@ int main(int ac, char **av)
 	s.stack_a = malloc(sizeof(long long) * (s.size + 1));
 	s.stack_b = malloc(sizeof(long long) * (s.size + 1));
 	fill_stack_a(nmbr, &s);
-	// s.top_a--;
-	
+	s.top_a--;
 	int i = ft_sorted(s.stack_a, s.top_a);
 	if (i == 1)
 		printf("it\'s sorted\n");
@@ -78,16 +131,36 @@ int main(int ac, char **av)
 		// if (s.len == 3 || s.len == 2)
 		// 	ft_sort_three(&s);
 		// else if (s.len == 4)
-		// 	ft_sort_four(&s);
+		// ft_sort_four(&s);
 		// else if (s.len == 5)
 			// ft_sort_five(&s);
 		// else 
 		// if (s.len > 5  && s.len <= 100)
+		// printf("%ld", resize_b(&s));
 		ft_big_sort(&s);
 		// else if (s.len > 100  && s.len <= 500)
 		// 	ft_extra_big_sort(&s);
 		// print_stacks(&s);
 		// free_all(&s, nmbr, 0, 0);
+
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// printf("--->pop inside main : %lld\n", s.stack_a[s.top_a]);
+		// printf("--->pop inside main b : %lld\n", s.stack_b[s.top_b]);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		
+		// printf("--->pop inside main a : %lld\n", s.stack_a[s.top_a]);
+		// printf("--->pop inside main b : %lld\n", s.stack_b[s.top_b]);
+		// print_stacks(&s);
+	
 	}
 	return (0);
 }

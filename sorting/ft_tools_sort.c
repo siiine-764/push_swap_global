@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:44:53 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/08 00:49:55 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/10 00:23:41 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ long long ft_find_location(t_stack *stck, long long nbr)
 	int	i;
 
 	i = 0;
-	while (i < stck->top_b)
+	while (i < stck->top_b )
 	{
 		// printf("-->top ;%d\n",stck->top_b);
 		// printf("biger : %lld\n",nbr);
 		if (stck->stack_b[i] == nbr)
 		{
-			printf("%d\n",i);
+			// printf("%d\n",i);
 			return (i);
 		}
 		i++;
@@ -73,12 +73,12 @@ long long ft_find_local(long long *chaos, long long nbr)
 {
 	int i;
 
-	i = 0;
-	while (i < 100)
+	i = -1;
+	while (++i < 100)
 	{
+		// printf("--> %d \n", i);
 		if (chaos[i] == nbr)
 			return (i);
-		i++;
 	}
 	return (-1);
 }
