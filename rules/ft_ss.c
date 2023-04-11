@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:47:09 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/04 01:08:01 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:00:45 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void ft_sa(t_stack *s)
 {
-	long long swap_a;
+	long swap_a;
 
 	swap_a = s->stack_a[0];
 	s->stack_a[0] = s->stack_a[1];
@@ -23,7 +23,7 @@ void ft_sa(t_stack *s)
 
 void ft_sb(t_stack *s)
 {
-	long long swap_b;
+	long swap_b;
 
 	swap_b = s->stack_b[0];
 	s->stack_b[0] = s->stack_b[1];
@@ -32,7 +32,7 @@ void ft_sb(t_stack *s)
 
 void sa(t_stack *s)
 {
-	long long swap_a;
+	long swap_a;
 
 	swap_a = s->stack_a[0];
 	s->stack_a[0] = s->stack_a[1];
@@ -43,7 +43,7 @@ void sa(t_stack *s)
 
 void sb(t_stack *s)
 {
-	long long swap_b;
+	long swap_b;
 
 	swap_b = s->stack_b[0];
 	s->stack_b[0] = s->stack_b[1];

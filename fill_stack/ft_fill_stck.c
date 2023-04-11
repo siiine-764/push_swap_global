@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/03 23:25:13 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:17:20 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ void	fill_stack_a(char **a, t_stack *s)
 char	**put_nbr_array(char **av, int ac, t_stack *p)
 {
 	char	*tmp_num;
-	// char	*test;
 	char	**numbers;
 	int i;
 
 	i = 1;
-	tmp_num = malloc(sizeof(char *) * (ac - 1));
+	tmp_num = ft_calloc(1, sizeof(char *) * (ac - 1));
 	p->size = 0;
 	while (av[i])
 	{
+		// printf("filling: %s\n", av[i]);
 		tmp_num = ft_strjoin(tmp_num, av[i]);
 		tmp_num = ft_strjoin(tmp_num, " ");
 		i++;

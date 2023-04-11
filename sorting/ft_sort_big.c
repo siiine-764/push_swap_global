@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:46:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/10 01:19:52 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/11 01:02:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,39 @@
 
 void ft_push_a(t_stack *s)
 {
-	long long	location;
-	long long	biger;
+	long	location;
+	long	biger;
 
-// s->top_b ++;
-	while (s->top_b != 0)
+	while (s->top_b >= 0)
 	{
 		biger = ft_find_biger(s);
 		location = ft_find_location(s, biger);
-		if (location <= (s->top_b / 2))
+		if (location <= (s->top_b + 1 / 2))
 		{
 			if (s->stack_b[0] == biger)
+				pa(s);
+			else
 				rb(s);
-				pa(s);
 		}
-		else if (location > (s->top_b / 2))
+		else if (location > (s->top_b + 1  / 2))
 		{
 			if (s->stack_b[0] == biger)
-				rrb(s);
 				pa(s);
+			else
+				rrb(s);
 		}
 	}
+	// s->top_b--;
 }
 
-long long	*ft_sort(t_stack *stck)
+long	*ft_sort(t_stack *stck)
 {
 	int	i;
-	long long	nbr;
-	long long	*chaos;
+	long	nbr;
+	long	*chaos;
 	//chic neat
 
-	chaos = malloc(sizeof(long long *) * (stck->top_a));
+	chaos =  ft_calloc(1, sizeof(long *) * (stck->top_a));
 	// if (!chaos)
 	// 	printf("Error VIP : cette array n\'est pas remplir\n");
 	i = 0;
@@ -72,13 +74,14 @@ long long	*ft_sort(t_stack *stck)
 void	ft_big_sort(t_stack *s)
 {
 	int			range = 0;
-	long long	sopa = 0;
-	long long	*chaos = ft_sort(s);
+	long	sopa = 0;
+	long	*chaos = ft_sort(s);
+		printf("before --> len : %d\n", s->top_a);
 
 	while (s->top_a != 0)
 	{
 		sopa = ft_find_local(chaos, s->stack_a[0]);
-		// printf("%lld\n",sopa); 
+		// printf("%lld\n",sopa);
 		if (sopa >= range && sopa <= 15 + range)
 		{
 			pb(s);
@@ -92,10 +95,12 @@ void	ft_big_sort(t_stack *s)
 		}
 		else if (sopa > 15 + range) 
 			ra(s);
-		// printf("range :%d", range);
 	}
+	s->top_a--;
+		printf("after --> len : %d\n", s->top_a);
 	ft_push_a(s);
 }
+
 
 // void	ft_extra_big_sort(t_stack *s)
 // {

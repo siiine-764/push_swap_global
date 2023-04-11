@@ -1,6 +1,6 @@
 NAME	= push_swap
 CC		= gcc
-CFLAGS 	= -Wall -Wextra -Werror
+CFLAGS 	= -Wall -Wextra -Werror -fsanitize=address -g
 LIBFT	= libft/libft.a
 
 SRCS =	messages/ft_message_errors.c\

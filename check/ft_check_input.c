@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/01 01:00:27 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:27:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void	ft_check_nbr(char **av)
 	i = 0;
 	while (av[i])
 	{
+		// printf("NUMBER: %s\n", av[i]);
 		j =  i + 1;
 		while(av[j])
 		{

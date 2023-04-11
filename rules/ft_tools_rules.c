@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:52:41 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/04 01:06:22 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:00:59 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_ra(t_stack *stck)
 {
-	long long	down_a;
+	long	down_a;
 	int i = 0;
 	int			lg = stck->top_a;
 
@@ -29,7 +29,7 @@ void	ft_ra(t_stack *stck)
 
 void	ft_rb(t_stack *stck)
 {
-	long long	down_b;
+	long	down_b;
 	int			i = 0;
 	int			lg = stck->top_b;
 
@@ -44,7 +44,7 @@ void	ft_rb(t_stack *stck)
 
 void	ft_rra(t_stack *stck)
 {
-	long long top_a;
+	long top_a;
 
 	top_a = stck->stack_a[stck->top_a];
 	int	lg = stck->top_a + 1;
@@ -57,7 +57,7 @@ void	ft_rra(t_stack *stck)
 
 void	ft_rrb(t_stack *stck)
 {
-	long long top_b;
+	long top_b;
 	
 	top_b = stck->stack_b[stck->top_b];
 	int	lg = stck->top_b + 1;
