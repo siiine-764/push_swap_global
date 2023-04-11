@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:46:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/11 01:02:56 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/11 20:53:14 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void ft_push_a(t_stack *s)
 {
 	long	location;
 	long	biger;
+
+		// print_stacks(s);
 
 	while (s->top_b >= 0)
 	{
@@ -36,6 +38,8 @@ void ft_push_a(t_stack *s)
 				rrb(s);
 		}
 	}
+		// print_stacks(s);
+
 	// s->top_b--;
 }
 
@@ -76,7 +80,8 @@ void	ft_big_sort(t_stack *s)
 	int			range = 0;
 	long	sopa = 0;
 	long	*chaos = ft_sort(s);
-		printf("before --> len : %d\n", s->top_a);
+		// printf("before --> len : %d\n", s->top_a);
+	// print_stacks(s);
 
 	while (s->top_a != 0)
 	{
@@ -97,7 +102,9 @@ void	ft_big_sort(t_stack *s)
 			ra(s);
 	}
 	s->top_a--;
-		printf("after --> len : %d\n", s->top_a);
+		// print_stacks(s);
+
+		// printf("after --> len : %d\n", s->top_a);
 	ft_push_a(s);
 }
 

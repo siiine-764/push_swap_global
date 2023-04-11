@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/11 00:53:18 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/11 23:26:42 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void    print_stacks(t_stack *p)
 
     printf("\n");
     i = -1;
-	int tp = p->top_a + 1;
+	int tp = p->top_a;
+	// printf("----%d----", p->top_a);
 	while (++i < tp)
 	{
         printf("\x1b[38;2;207;75;14m\t| %ld |\n", p->stack_a[i]);
@@ -47,7 +48,7 @@ void    print_stacks(t_stack *p)
 	}
 	printf("\t-----\n");
     printf("\t  a\n");
-	tp = p->top_b + 1;
+	tp = p->top_b;
     i = -1;
 	printf("\n\n");
     while (++i < tp)
@@ -115,8 +116,8 @@ int main(int ac, char **av)
 {
 	char	**nmbr;
 	t_stack	s;
-	s.top_a = -1;
-	s.top_b = -1;
+	s.top_a = 0;
+	s.top_b = 0;
 	if (ac == 1)
 		ft_message_error_empty();
 
@@ -124,12 +125,15 @@ int main(int ac, char **av)
 	// ft_check_same_nbr(av);
 	nmbr = put_nbr_array(av, ac, &s); 
 	ft_check_nbr(nmbr);
-	s.stack_a = ft_calloc(1, sizeof(long) * (s.size + 1));
-	s.stack_b = ft_calloc(1, sizeof(long) * (s.size + 1));
+	s.stack_a = ft_calloc(1, sizeof(long) * (s.len + 1));
+	s.stack_b = ft_calloc(1, sizeof(long) * (s.len + 1));
 	fill_stack_a(nmbr, &s);
 	// s.top_a--;
-	// printf("%d", s.top_a);
+	printf("stck->topb %d\n", s.top_b);
+	printf("stck->topa %d\n", s.top_a);
 	// print_stacks(&s);
+	exit(0);
+	// printf("%d", s.top_a);
 		// print_stacks(&s);
 	// int i = ft_sorted(s.stack_a, s.top_a);
 	// if (i == 1)
@@ -150,7 +154,6 @@ int main(int ac, char **av)
 		// 	ft_extra_big_sort(&s);
 		print_stacks(&s);
 		// free_all(&s, nmbr, 0, 0);
-
 		// pb(&s);
 		// pb(&s);
 		// pb(&s);
