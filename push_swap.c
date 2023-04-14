@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/11 23:26:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/14 01:42:05 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,30 @@ void    print_stacks(t_stack *p)
     int    i;
 
     printf("\n");
-    i = -1;
+    i = 0;
 	int tp = p->top_a;
-	// printf("----%d----", p->top_a);
-	while (++i < tp)
+	printf("-----top inside print stack A :%d\n", tp);
+	printf("-----top inside print stack B :%d\n", p->top_b);
+
+	while (i <= tp)
 	{
-        printf("\x1b[38;2;207;75;14m\t| %ld |\n", p->stack_a[i]);
+        printf("\x1b[38;2;207;75;14m\t | %d | | %ld |\n", i, p->stack_a[i]);
+		i++;
 		
 	}
-	printf("\t-----\n");
-    printf("\t  a\n");
+    // printf("| %ld |\n", p->stack_b[0]);
+    // printf("| %ld |\n", p->stack_b[6]);
+	printf("\t----- -----\n");
+    printf("\t     a\n");
 	tp = p->top_b;
-    i = -1;
+    i = 0;
 	printf("\n\n");
-    while (++i < tp)
-        printf("\x1b[38;2;207;75;14m\t| %ld |\t\n", p->stack_b[i]);
+    while (i <= tp)
+	{
+        printf("\x1b[38;2;207;75;14m\t | %d | | %ld |\t\n",i, p->stack_b[i]);
+		i++;
+		
+	}
     printf("\t----\n");
     printf("\t  b  \n");
 }
@@ -116,8 +125,10 @@ int main(int ac, char **av)
 {
 	char	**nmbr;
 	t_stack	s;
-	s.top_a = 0;
-	s.top_b = 0;
+	s.top_a = -1;
+	s.top_b = -1;
+	s.n_b = 0;
+	s.n_a = 0;
 	if (ac == 1)
 		ft_message_error_empty();
 
@@ -129,10 +140,10 @@ int main(int ac, char **av)
 	s.stack_b = ft_calloc(1, sizeof(long) * (s.len + 1));
 	fill_stack_a(nmbr, &s);
 	// s.top_a--;
-	printf("stck->topb %d\n", s.top_b);
-	printf("stck->topa %d\n", s.top_a);
+	// printf("stck->topb %d\n", s.top_b);
+	// printf("stck->topa %d\n", s.top_a);
 	// print_stacks(&s);
-	exit(0);
+	// exit(0);
 	// printf("%d", s.top_a);
 		// print_stacks(&s);
 	// int i = ft_sorted(s.stack_a, s.top_a);
@@ -151,10 +162,49 @@ int main(int ac, char **av)
 		// printf("%ld", resize_b(&s));
 		ft_big_sort(&s);
 		// else if (s.len > 100  && s.len <= 500)
-		// 	ft_extra_big_sort(&s);
-		print_stacks(&s);
+			// ft_extra_big_sort(&s);
 		// free_all(&s, nmbr, 0, 0);
 		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+	// printf("stack b : %ld\n", s.stack_b[7]);
+	// printf("stack a : %ld\n", s.stack_a[0]);
+	// printf("stack a : %ld\n", s.stack_a[1]);
+	// printf("top a : %d\n", s.top_a);
+		// print_stacks(&s);
+		// 
+		// pb(&s);
+		// pb(&s);
+		// pb(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// print_stacks(&s);
+
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// pa(&s);
+		// printf("stack b : %ld\n", s.stack_a[7]);
+	// printf("stack b : %ld\n", s.stack_b[0]);
+	// printf("stack b : %ld\n", s.stack_b[1]);
+	// printf("stack b 6 : %ld\n", s.stack_b[6]);
+	// printf("top b : %d\n", s.top_b);
+		// pa(&s);
+		// print_stacks(&s);
 		// pb(&s);
 		// pb(&s);
 		// pb(&s);

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:46:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/11 20:53:14 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/14 01:44:02 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,20 @@ long	*ft_sort(t_stack *stck)
 
 void	ft_big_sort(t_stack *s)
 {
-	int			range = 0;
+	int		range = 0;
 	long	sopa = 0;
 	long	*chaos = ft_sort(s);
 		// printf("before --> len : %d\n", s->top_a);
 	// print_stacks(s);
 
+		// print_stacks(s);
+
+	// printf("----> A top %d\n", s->top_a);
+	// printf("----> A nmbr a%d\n", s->n_a);
+	// printf("----> A len %d\n", s->len);
 	while (s->top_a != 0)
 	{
+		// printf("----> inside while A top %d\n", s->top_a);
 		sopa = ft_find_local(chaos, s->stack_a[0]);
 		// printf("%lld\n",sopa);
 		if (sopa >= range && sopa <= 15 + range)
@@ -101,7 +107,9 @@ void	ft_big_sort(t_stack *s)
 		else if (sopa > 15 + range) 
 			ra(s);
 	}
-	s->top_a--;
+		// print_stacks(&s);
+
+	// s->top_a--;
 		// print_stacks(s);
 
 		// printf("after --> len : %d\n", s->top_a);
