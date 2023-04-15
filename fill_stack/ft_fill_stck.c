@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/15 01:37:05 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/15 12:35:57 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 		ln++;
 	}
 	numbers = ft_split((const char *)tmp_num_cpy, ' ');
+	// while(1);
+	
 	return (numbers);
 }

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/14 22:15:53 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/15 12:17:51 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ typedef struct stack
 	long	*stack_a;
 	long	*s_fake;
 	int			sz_fake;
-	// long long	*chaos;
-	int			top_a;
-	int			top_b;
-	int			test_top;
-	int			n_b;
-	int			n_a;
-	int			size;
-	int			len;
+	int		top_a;
+	int		top_b;
+	int		test_top;
+	int		n_b;
+	int		n_a;
+	int		size;
+	int		len;
 }	t_stack;
 
+void	ft_option(t_stack *s);
 /// ft_check_input //
 void	ft_check_input(char **av);
 void	ft_check_nbr(char **av);
