@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/13 22:54:33 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/14 22:15:53 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct stack
 	// long long	*chaos;
 	int			top_a;
 	int			top_b;
+	int			test_top;
 	int			n_b;
 	int			n_a;
 	int			size;
@@ -70,7 +71,7 @@ void		ft_push_a(t_stack *s);
 long	ft_find_biger(t_stack *s);
 long	ft_find_location(t_stack *s, long nbr);
 long	ft_find_minor(t_stack *s);
-long	ft_find_local(long *chaos, long nbr);
+long	ft_find_local(long *chaos, long nbr, int len);
 /// ft_fill_stacks //
 char	**put_nbr_array(char **av, int ac, t_stack *p);
 void	fill_stack_a(char **a, t_stack *s);

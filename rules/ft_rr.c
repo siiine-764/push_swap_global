@@ -6,55 +6,47 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:37:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/10 22:16:02 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/15 00:30:19 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_stack *stck)
+void	ra(t_stack *s)
 {
 	long	down_a;
-	int i = 0;
-	int			lg = stck->top_a;
+	int		i = 0;
+	int		lg = s->top_a;
 
-	down_a = stck->stack_a[0];
-		// printf("before: \n");			
-		// print_stacks(stck);
+	down_a = s->stack_a[0];
 	while (i < lg)
 	{
-		stck->stack_a[i] = stck->stack_a[i + 1];
+		s->stack_a[i] = s->stack_a[i + 1];
 		i++;
 	}
-	stck->stack_a[stck->top_a] = down_a;
-		// printf("after: \n");
-		// 			print_stacks(stck);
+	s->stack_a[s->top_a] = down_a;
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack *stck)
+void	rb(t_stack *s)
 {
 	long	down_b;
-	int			i = 0;
-	int			lg = stck->top_b;
+	int		i = 0;
+	int		lg = s->top_b;
 
-	down_b = stck->stack_b[0];
-			// printf("after: \n");
-			// 		print_stacks(stck);
+	down_b = s->stack_b[0];
 	while (i < lg)
 	{
-		stck->stack_b[i] = stck->stack_b[i + 1];
+		s->stack_b[i] = s->stack_b[i + 1];
 		i++;
 	}
-	stck->stack_b[stck->top_b] = down_b;
-		// printf("after: \n");
-		// 			print_stacks(stck);
+	s->stack_b[s->top_b] = down_b;
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_stack *stck)
+void	rr(t_stack *s)
 {
-	ft_ra(stck);
-	ft_rb(stck);
+	ft_ra(s);
+	ft_rb(s);
 	write(1, "rr\n", 3);
 }
