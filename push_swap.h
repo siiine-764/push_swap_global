@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/15 12:17:51 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/16 23:03:01 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,21 @@ void		ft_big_sort(t_stack *s);
 void		ft_extra_big_sort(t_stack *s);
 void		ft_push_a(t_stack *s);
 // functoins to help sort //
-long	ft_find_biger(t_stack *s);
-long	ft_find_location(t_stack *s, long nbr);
-long	ft_find_minor(t_stack *s);
-long	ft_find_local(long *chaos, long nbr, int len);
+void		ft_part2(t_stack *s);
+void		ft_part1(int start, t_stack *s);
+long		ft_find_biger(t_stack *s);
+long		ft_find_location(t_stack *s, long nbr);
+long		ft_find_minor(t_stack *s);
+long		ft_find_local(long *chaos, long nbr, int len);
 /// ft_fill_stacks //
-char	**put_nbr_array(char **av, int ac, t_stack *p);
-void	fill_stack_a(char **a, t_stack *s);
+char		**put_nbr_array(char **av, int ac, t_stack *p);
+void		fill_stack_a(char **a, t_stack *s);
 /// ft_messages_errors //
-void	ft_message_error_space(void);
-void	ft_message_error(void);
-void	ft_message_error_integer(void);
-void	ft_message_error_nbr(void);
-void	ft_message_error_empty(void);
-void    print_stacks(t_stack *p);
+void		ft_message_error_space(void);
+void		ft_message_error(void);
+void		ft_message_error_integer(void);
+void		ft_message_error_nbr(void);
+void		ft_message_error_empty(void);
+void		print_stacks(t_stack *p);
+void		ft_free(char **numbers);
 #endif

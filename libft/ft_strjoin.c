@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 19:52:51 by mayache-          #+#    #+#             */
-/*   Updated: 2023/03/20 12:19:46 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:37:09 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ char	*ft_strjoin(char *s1, char *s2)
 		free(s1);
 		return (reue);
 	}
-	free(s1);
 	return (0);
 }

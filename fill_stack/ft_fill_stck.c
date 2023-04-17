@@ -6,11 +6,24 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/15 12:35:57 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/16 23:30:40 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_free(char **numbers)
+{
+	int	i;
+
+	i = 0;	
+	while (numbers[i])
+	{
+		free(numbers[i]);
+		i++;
+	}
+	free(numbers);
+}
 
 void	fill_stack_a(char **a, t_stack *s)
 {
@@ -27,19 +40,19 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 {
 	char	*tmp_num;
 	char	**numbers;
-	int i;
+	int		j;
+	int		i;
 
 	i = 1;
-	int j = 0;
-
+	j = 0;
 	tmp_num = ft_calloc(1, sizeof(char *) * (ac - 1));
 	p->size = 0;
 	p->len = 0;
-	
 	while (av[i] != '\0')
 	{
 		tmp_num = ft_strjoin(tmp_num, av[i]);
 		tmp_num = ft_strjoin(tmp_num, " ");
+		// printf("%s", tmp_num);
 		i++;
 		p->size++;
 	}
@@ -60,8 +73,8 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 		tmp_num_cpy[ln] = tmp_num[ln];
 		ln++;
 	}
-	numbers = ft_split((const char *)tmp_num_cpy, ' ');
-	// while(1);
-	
+	numbers = ft_split((char *)tmp_num_cpy, ' ');	
+	free(tmp_num_cpy);
+	free(tmp_num);
 	return (numbers);
 }

@@ -1,43 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_message_errors.c                                :+:      :+:    :+:   */
+/*   ft_tools_sort2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 12:10:01 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/16 22:43:06 by mayache-         ###   ########.fr       */
+/*   Created: 2023/04/16 22:32:27 by mayache-          #+#    #+#             */
+/*   Updated: 2023/04/17 01:45:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_message_error_space(void)
+void	ft_part1(int start, t_stack *s)
 {
-	write(1, "error 💀\n", 11);
-	exit(1);
+	pb(s);
+	start++;
 }
 
-void	ft_message_error(void)
+void	ft_part2(t_stack *s)
 {
-	write(1, "..error 💀\n", 13);
-	exit(1);
+	pb(s);
+	rb(s);
 }
 
-void	ft_message_error_integer(void)
+long	ft_find_minor(t_stack *s)
 {
-	write(1, "error max or min intager ☃︎\n", 33);
-	exit(1);
-}
+	int		k;
+	int		index_minor;
+	long	minor;
 
-void	ft_message_error_nbr(void)
-{
-	write(1, "error nbr 💀\n", 15);
-	exit(1);
-}
-
-void	ft_message_error_empty(void)
-{
-	write(1, "empty input\n", 12);
-	exit(1);
+	k = 0;
+	index_minor = 0;
+	minor = s->stack_a[0];
+	while (k <= s->top_a)
+	{
+		if (minor > s->stack_a[k])
+		{
+			index_minor = k;
+			minor = s->stack_a[k];
+		}
+		k++;
+	}
+	return (index_minor);
 }

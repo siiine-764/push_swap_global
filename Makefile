@@ -1,6 +1,6 @@
 NAME	= push_swap
 CC		= gcc
-CFLAGS 	= -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS 	= -Wall -Wextra -Werror
 LIBFT	= libft/libft.a
 
 SRCS =	messages/ft_message_errors.c\
@@ -12,7 +12,8 @@ SRCS =	messages/ft_message_errors.c\
 		fill_stack/ft_fill_stck.c\
 		rules/ft_tools_rules.c\
 		sorting/ft_sort_min.c\
-		sorting/ft_tools_sort.c\
+		sorting/ft_tools_sort1.c\
+		sorting/ft_tools_sort2.c\
 		sorting/ft_sort_big.c\
 		check/ft_check_input.c\
 		check/ft_check_sorted.c\

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/10 22:27:54 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/17 00:36:19 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,6 @@
 // 	}
 // }
 
-// void	ft_check_nbr(char **av)
-// {
-// 	int		i;
-// 	int		j;
-
-// 	i = 0;
-// 	while (av[i])
-// 	{
-// 		if(av[i][0] == '-' || av[i][0] == '+')
-// 		{
-// 			if (!(av[i][1] >= '0' && av[i][1] <= '9'))
-// 			{	
-// 				write(1, "error VIP\n", 10);
-// 				exit(1);
-// 			}
-// 		}
-// 		j = 0;
-// 		while (av[i][++j])
-// 		{
-// 			while (av[i][j] == '-' || av[i][j] == '+')
-// 			{
-// 				if (!(av[i][j + 1] >= '0' && av[i][j + 1] <= '9') || av[i][j - 1] != ' ')
-// 					ft_message_error_nbr();
-// 				j++;
-// 			}
-// 		}
-// 		printf("%d\n\n", i);
-// 		i++;
-// 	}
-// }
-
 
 void	check_argv(int argc, char **argv)
 {
@@ -83,8 +52,7 @@ void	check_argv(int argc, char **argv)
 				if (*str < '0' || *str > '9')
 				{
 					write(1, "error VIP\n", 10);
-				exit(1);
-					
+					exit(1);	
 				}
 			}
 			else if (*str != ' ' && (*str < '0' || *str > '9'))
@@ -107,15 +75,19 @@ void	ft_check_nbr(char **av)
 	i = 0;
 	while (av[i])
 	{
-		// printf("NUMBER: %s\n", av[i]);
 		j =  i + 1;
 		while(av[j])
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
+				printf("---> i[%d] %s\n", i, av[i]);
+				printf("---> j[%d] %s\n", j, av[j]);
+				// printf(" the double number is : ---> i[%d] = %s. ---> j[%d] = %s\n", i, av[i], j, av[j]);
 				write(1, "Error VIP : Double number\n", 26);
 				exit(1);
 			}
+			// printf("---> i[%d] = %s. ---> j[%d] = %s\n", i, av[i], j, av[j]);
+			// printf("av[%d] = %s\n", j, av[j]);
 			j++;
 		}
 		i++;
