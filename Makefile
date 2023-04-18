@@ -9,6 +9,7 @@ SRCS =	messages/ft_message_errors.c\
 		rules/ft_pp.c\
 		rules/ft_rr.c\
 		rules/ft_rrr.c\
+		rules/ft_tools_rules01.c\
 		fill_stack/ft_fill_stck.c\
 		rules/ft_tools_rules.c\
 		sorting/ft_sort_min.c\
@@ -17,6 +18,7 @@ SRCS =	messages/ft_message_errors.c\
 		sorting/ft_sort_big.c\
 		check/ft_check_input.c\
 		check/ft_check_sorted.c\
+		fill_stack/ft_help.c\
 
 all: $(NAME)
 

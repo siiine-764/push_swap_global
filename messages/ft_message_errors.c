@@ -6,38 +6,14 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:10:01 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/16 22:43:06 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:36:19 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_message_error_space(void)
+void	message_error(void)
 {
-	write(1, "error 💀\n", 11);
-	exit(1);
-}
-
-void	ft_message_error(void)
-{
-	write(1, "..error 💀\n", 13);
-	exit(1);
-}
-
-void	ft_message_error_integer(void)
-{
-	write(1, "error max or min intager ☃︎\n", 33);
-	exit(1);
-}
-
-void	ft_message_error_nbr(void)
-{
-	write(1, "error nbr 💀\n", 15);
-	exit(1);
-}
-
-void	ft_message_error_empty(void)
-{
-	write(1, "empty input\n", 12);
+	write(2, "Error\n", 6);
 	exit(1);
 }

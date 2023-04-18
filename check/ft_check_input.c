@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/17 00:36:19 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/18 01:29:39 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@
 // 			if(av[i][j] == ' ')
 // 				spaces++;
 // 		if (len == spaces)
-// 			ft_message_error_space();
+// 			message_error();
 // 		i++;
 // 	}
 // }
-
 
 void	check_argv(int argc, char **argv)
 {
@@ -50,16 +49,10 @@ void	check_argv(int argc, char **argv)
 			{
 				str++;
 				if (*str < '0' || *str > '9')
-				{
-					write(1, "error VIP\n", 10);
-					exit(1);	
-				}
+					message_error();
 			}
 			else if (*str != ' ' && (*str < '0' || *str > '9'))
-			{
-				write(1, "error VIP\n", 10);
-				exit(1);
-			}
+				message_error();
 			if (*str)
 				str++;
 		}
@@ -69,25 +62,17 @@ void	check_argv(int argc, char **argv)
 
 void	ft_check_nbr(char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (av[i])
 	{
-		j =  i + 1;
-		while(av[j])
+		j = i + 1;
+		while (av[j])
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
-			{
-				printf("---> i[%d] %s\n", i, av[i]);
-				printf("---> j[%d] %s\n", j, av[j]);
-				// printf(" the double number is : ---> i[%d] = %s. ---> j[%d] = %s\n", i, av[i], j, av[j]);
-				write(1, "Error VIP : Double number\n", 26);
-				exit(1);
-			}
-			// printf("---> i[%d] = %s. ---> j[%d] = %s\n", i, av[i], j, av[j]);
-			// printf("av[%d] = %s\n", j, av[j]);
+				message_error();
 			j++;
 		}
 		i++;

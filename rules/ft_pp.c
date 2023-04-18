@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:42:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/16 18:13:34 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:57:46 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,16 @@
 void	pb(t_stack *s)
 {
 	long	pop_a;
+	int		i;
 
+	i = -1;
 	pop_a = s->stack_a[0];
-	if (pop_a == -1)
-	{
-		printf("Error VIP: stack underflow");
-		exit(1);
-	}
-		if (s->top_a < 0)
-	{
-		printf("Error VIP: s->top a\n");
-		exit(1);
-	}
-	int i = -1;
+	ft_mssg_error1(pop_a);
+	ft_mssg_error2(s);
 	while (++i < s->len)
 		s->stack_a[i] = s->stack_a[i + 1];
 	s->top_a--;
-	 i = s->n_b;
+	i = s->n_b;
 	while (i > 0)
 	{
 		s->stack_b[i] = s->stack_b[i - 1];
@@ -46,19 +39,12 @@ void	pb(t_stack *s)
 void	pa(t_stack *s)
 {
 	long	pop_b;
+	int		i;
 
+	i = -1;
 	pop_b = s->stack_b[0];
-	if (pop_b == -1)
-	{
-		printf("Error VIP: stack underflow");
-		exit(1);
-	}
-	if (s->top_b < 0)
-	{
-		printf("Error VIP: s->top b\n");
-		exit(1);
-	}
-	int i = -1;
+	ft_mssg_error1(pop_b);
+	ft_mssg_error3(s);
 	while (++i < s->top_b)
 		s->stack_b[i] = s->stack_b[i + 1];
 	s->top_b--;

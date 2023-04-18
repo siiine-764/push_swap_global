@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:37:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/15 00:30:19 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:58:20 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void	ra(t_stack *s)
 {
 	long	down_a;
-	int		i = 0;
-	int		lg = s->top_a;
+	int		i;
+	int		lg;
 
+	i = 0;
+	lg = s->top_a;
 	down_a = s->stack_a[0];
 	while (i < lg)
 	{
@@ -31,9 +33,11 @@ void	ra(t_stack *s)
 void	rb(t_stack *s)
 {
 	long	down_b;
-	int		i = 0;
-	int		lg = s->top_b;
+	int		i;
+	int		lg;
 
+	i = 0;
+	lg = s->top_b;
 	down_b = s->stack_b[0];
 	while (i < lg)
 	{
