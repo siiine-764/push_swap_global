@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/18 01:08:54 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:33:17 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct stack
 
 void	ft_option(t_stack *s);
 /// ft_check_input //
-void	ft_check_input(char **av);
+void	ft_check_speace(char **av);
 void	ft_check_nbr(char **av);
 void	check_argv(int argc, char **argv);
 int		ft_sorted(long *arr, int size);

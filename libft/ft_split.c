@@ -6,11 +6,12 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:27:45 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/18 00:39:17 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/18 23:30:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	cnt_words(const char *str, char delimiter)
 {
@@ -33,6 +34,12 @@ int	cnt_words(const char *str, char delimiter)
 	return (cnt);
 }
 
+void	message_error1(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
 int	sizew(char const *s, char c, int i)
 {
 	int	sz;
@@ -46,10 +53,29 @@ int	sizew(char const *s, char c, int i)
 	return (sz);
 }
 
+void	ft_check_len(int wrds, char const *s, char c)
+{
+	size_t	sz;
+	size_t	count;
+	int		i;
+
+	i = 0;
+	count = 0;
+	while (i < wrds)
+	{
+		while (s[count] == c)
+			count++;
+		sz = sizew(s, c, count);
+		if (sz > 20)
+			message_error1();
+		i++;
+		count = count + sz;
+	}
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**stck;
-	int		wrds;
 	int		i;
 	size_t	sz;
 	size_t	count;
@@ -58,11 +84,11 @@ char	**ft_split(char const *s, char c)
 	count = 0;
 	if (!s)
 		return (0);
-	wrds = cnt_words(s, c);
-	stck = (char **)malloc((wrds + 1) * sizeof(char *));
+	ft_check_len(cnt_words(s, c), s, c);
+	stck = (char **)malloc((cnt_words(s, c) + 1) * sizeof(char *));
 	if (stck == NULL)
 		return (stck);
-	while (i < wrds)
+	while (i < cnt_words(s, c))
 	{
 		while (s[count] == c)
 			count++;

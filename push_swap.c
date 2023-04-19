@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/18 00:35:22 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:52:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_option(t_stack *s)
 	i = ft_sorted(s->stack_a, s->top_a);
 	if (i != 1)
 	{
-		if (s->top_a == 2 || s->top_a == 1)
+		if (s->top_a == 2 || s->top_a == 1 || s->top_a == 0)
 			ft_sort_three(s);
 		else if (s->top_a == 3)
 			ft_sort_four(s);
@@ -48,6 +48,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		message_error();
 	check_argv(ac, av);
+	ft_check_speace(av);
 	nmbr = put_nbr_array(av, ac, &s);
 	s.stack_a = ft_calloc(1, sizeof(long) * (s.len + 1));
 	s.stack_b = ft_calloc(1, sizeof(long) * (s.len + 1));

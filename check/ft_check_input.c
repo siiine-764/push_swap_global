@@ -6,33 +6,45 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/18 01:29:39 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/19 01:35:35 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
+void	ft_check_speace(char **av)
+{
+	int		i;
+	int		j;
+	size_t	len;
+	size_t	spaces;
 
-// void	ft_check_input(char **av)
-// {
-// 	int		i;
-// 	int		j;
-// 	size_t	len;
-// 	size_t	spaces;
-
-// 	i = 0;
-// 	while (av[i])
-// 	{
-// 		j = -1;
-// 		len = ft_strlen((const char *)av[i]);
-// 		spaces = 0;
-// 		while (av[i][++j])
-// 			if(av[i][j] == ' ')
-// 				spaces++;
-// 		if (len == spaces)
-// 			message_error();
-// 		i++;
-// 	}
-// }
+	i = 1;
+	while (av[i])
+	{
+		j = -1;
+		len = ft_strlen((const char *)av[i]);
+		spaces = 0;
+		while (av[i][++j])
+		{
+			if(av[i][j] == ' ')
+			{
+				spaces++;
+				// printf("---> spaces %zu\n", spaces);
+			}
+		}
+		// if (spaces > 0)
+		// {
+		// 	av[i][spaces] = ' ';
+		// 	// printf("dddd");	
+		// }
+		// printf("---> %s\n", av[i]);
+		// printf("%c\n", av[i][j]);
+		if (len == spaces)
+			message_error();
+		i++;
+	}
+}
 
 void	check_argv(int argc, char **argv)
 {
@@ -59,6 +71,7 @@ void	check_argv(int argc, char **argv)
 		i++;
 	}
 }
+
 
 void	ft_check_nbr(char **av)
 {

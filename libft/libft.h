@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:04:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/17 20:00:40 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:36:30 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
+void	message_error1(void);
+void	ft_check_len(int wrds, char const *s, char c);
 #endif
