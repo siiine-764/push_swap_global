@@ -6,12 +6,12 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/19 01:35:35 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/20 01:40:34 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
+
 void	ft_check_speace(char **av)
 {
 	int		i;
@@ -27,19 +27,11 @@ void	ft_check_speace(char **av)
 		spaces = 0;
 		while (av[i][++j])
 		{
-			if(av[i][j] == ' ')
+			if (av[i][j] == ' ')
 			{
 				spaces++;
-				// printf("---> spaces %zu\n", spaces);
 			}
 		}
-		// if (spaces > 0)
-		// {
-		// 	av[i][spaces] = ' ';
-		// 	// printf("dddd");	
-		// }
-		// printf("---> %s\n", av[i]);
-		// printf("%c\n", av[i][j]);
 		if (len == spaces)
 			message_error();
 		i++;
@@ -57,7 +49,7 @@ void	check_argv(int argc, char **argv)
 		str = argv[i];
 		while (*str)
 		{
-			if (*str == '-' || *str == '+' )
+			if (*str == '-' || *str == '+')
 			{
 				str++;
 				if (*str < '0' || *str > '9')
@@ -71,7 +63,6 @@ void	check_argv(int argc, char **argv)
 		i++;
 	}
 }
-
 
 void	ft_check_nbr(char **av)
 {

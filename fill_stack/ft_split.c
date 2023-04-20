@@ -6,12 +6,11 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:27:45 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/18 23:30:49 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/19 23:27:25 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
 int	cnt_words(const char *str, char delimiter)
 {
@@ -34,12 +33,6 @@ int	cnt_words(const char *str, char delimiter)
 	return (cnt);
 }
 
-void	message_error1(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
 int	sizew(char const *s, char c, int i)
 {
 	int	sz;
@@ -53,7 +46,7 @@ int	sizew(char const *s, char c, int i)
 	return (sz);
 }
 
-void	ft_check_len(int wrds, char const *s, char c)
+void	ft_check_len(int wrds, char const *s, char c, t_stack *stack)
 {
 	size_t	sz;
 	size_t	count;
@@ -61,19 +54,21 @@ void	ft_check_len(int wrds, char const *s, char c)
 
 	i = 0;
 	count = 0;
+	stack->len = -1;
 	while (i < wrds)
 	{
 		while (s[count] == c)
 			count++;
 		sz = sizew(s, c, count);
-		if (sz > 20)
-			message_error1();
+		stack->len++;
+		if (sz > 12)
+			message_error();
 		i++;
 		count = count + sz;
 	}
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c, t_stack *stack)
 {
 	char	**stck;
 	int		i;
@@ -84,7 +79,7 @@ char	**ft_split(char const *s, char c)
 	count = 0;
 	if (!s)
 		return (0);
-	ft_check_len(cnt_words(s, c), s, c);
+	ft_check_len(cnt_words(s, c), s, c, stack);
 	stck = (char **)malloc((cnt_words(s, c) + 1) * sizeof(char *));
 	if (stck == NULL)
 		return (stck);

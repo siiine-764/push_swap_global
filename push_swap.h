@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/19 00:33:17 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/20 00:17:38 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ char	*ft_copy(char *tmp_num, char *tmp_num_cpy, t_stack *p);
 void	fill_stack_a(char **a, t_stack *s);
 void	ft_len(char *tmp_num, t_stack *p);
 void	ft_free(char **numbers);
+void	ft_check_len(int wrds, char const *s, char c, t_stack *stack);
+int		cnt_words(const char *str, char delimiter);
+int		sizew(char const *s, char c, int i);
+void	ft_check_len(int wrds, char const *s, char c, t_stack *stack);
+char	**ft_split(char const *s, char c, t_stack *stack);
 /// ft_messages_errors //
 void	message_error(void);
 #endif

@@ -6,16 +6,14 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/19 01:54:31 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/20 00:49:36 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 void	fill_stack_a(char **a, t_stack *s)
 {
-	printf("------>>%d\n", s->len);
 	while (++s->top_a <= s->len)
 	{
 		s->stack_a[s->top_a] = ft_atoi(a[s->top_a]);
@@ -42,7 +40,7 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 		i++;
 	}
 	tmp_num_cpy = ft_copy(tmp_num, tmp_num_cpy, p);
-	numbers = ft_split((char *)tmp_num_cpy, ' ');
+	numbers = ft_split((char *)tmp_num_cpy, ' ', p);
 	free(tmp_num_cpy);
 	free(tmp_num);
 	return (numbers);
