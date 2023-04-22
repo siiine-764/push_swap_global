@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:30:11 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/19 23:24:22 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/22 01:03:32 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,4 @@ void	ft_free(char **numbers)
 		i++;
 	}
 	free(numbers);
-}
-
-char	*ft_copy(char *tmp_num, char *tmp_num_cpy, t_stack *p)
-{
-	int	ln;
-
-	ln = 0;
-	p->len = 0;
-	ft_len(tmp_num, p);
-	tmp_num_cpy = ft_calloc(1, sizeof(char *) * (p->len + 1));
-	while (tmp_num[ln] != '\0')
-	{
-		tmp_num_cpy[ln] = tmp_num[ln];
-		ln++;
-	}
-	return (tmp_num_cpy);
 }

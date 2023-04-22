@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/20 00:17:38 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/22 01:07:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ long	ft_find_minor(t_stack *s);
 long	ft_find_local(long *chaos, long nbr, int len);
 /// ft_fill_stacks //
 char	**put_nbr_array(char **av, int ac, t_stack *p);
-char	*ft_copy(char *tmp_num, char *tmp_num_cpy, t_stack *p);
 void	fill_stack_a(char **a, t_stack *s);
 void	ft_len(char *tmp_num, t_stack *p);
 void	ft_free(char **numbers);

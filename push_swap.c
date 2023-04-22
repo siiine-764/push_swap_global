@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/20 01:42:03 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/22 01:31:30 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void	ft_option(t_stack *s)
 {
 	int	i;
 
+	i = 0;
+	if (s->top_a == 0)
+		return ;
 	i = ft_sorted(s->stack_a, s->top_a);
 	if (i != 1)
 	{
-		if (s->top_a == 0)
-			return ;
 		if (s->top_a == 2 || s->top_a == 1)
 			ft_sort_three(s);
 		else if (s->top_a == 3)
@@ -31,11 +32,9 @@ void	ft_option(t_stack *s)
 			ft_big_sort(s);
 		else if (s->top_a >= 100 && s->top_a < 500)
 			ft_extra_big_sort(s);
-		else
-			message_error();
 	}
 	else
-		message_error();
+		return ;
 }
 
 int	main(int ac, char **av)

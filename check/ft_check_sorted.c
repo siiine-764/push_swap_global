@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:16:41 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/18 01:23:45 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/22 00:59:06 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_sorted(long *arr, int size)
 	int	i;
 
 	i = 0;
-	while (i <= size)
+	while (i < size)
 	{
 		if (arr[i] > arr[i + 1])
 			return (0);

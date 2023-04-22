@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/20 01:40:34 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/21 18:16:31 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_check_speace(char **av)
 			}
 		}
 		if (len == spaces)
-			message_error();
+			return ;
 		i++;
 	}
 }

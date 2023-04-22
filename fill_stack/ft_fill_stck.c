@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/20 00:49:36 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/22 01:31:07 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 		tmp_num = ft_strjoin(tmp_num, " ");
 		i++;
 	}
-	tmp_num_cpy = ft_copy(tmp_num, tmp_num_cpy, p);
-	numbers = ft_split((char *)tmp_num_cpy, ' ', p);
+	numbers = ft_split((char *)tmp_num, ' ', p);
 	free(tmp_num_cpy);
 	free(tmp_num);
 	return (numbers);
