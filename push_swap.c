@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:13 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/23 10:19:24 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/23 12:08:41 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	main(int ac, char **av)
 	fill_stack_a(nmbr, &s);
 	ft_check_nbr(nmbr);
 	ft_option(&s);
+	free(s.stack_a);
+	free(s.stack_b);
 	ft_free(nmbr);
 	return (0);
 }
