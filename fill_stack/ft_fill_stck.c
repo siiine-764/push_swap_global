@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/22 01:31:07 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:13:01 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,9 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 {
 	char	*tmp_num;
 	char	**numbers;
-	char	*tmp_num_cpy;
 	int		i;
 
 	i = 1;
-	tmp_num_cpy = 0;
 	tmp_num = ft_calloc(1, sizeof(char *) * (ac - 1));
 	while (av[i] != '\0')
 	{
@@ -40,7 +38,6 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 		i++;
 	}
 	numbers = ft_split((char *)tmp_num, ' ', p);
-	free(tmp_num_cpy);
 	free(tmp_num);
 	return (numbers);
 }
