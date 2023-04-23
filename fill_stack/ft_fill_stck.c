@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:59:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/23 10:13:01 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:27:28 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**put_nbr_array(char **av, int ac, t_stack *p)
 
 	i = 1;
 	tmp_num = ft_calloc(1, sizeof(char *) * (ac - 1));
-	while (av[i] != '\0')
+	while (av[i])
 	{
 		tmp_num = ft_strjoin(tmp_num, av[i]);
 		tmp_num = ft_strjoin(tmp_num, " ");
