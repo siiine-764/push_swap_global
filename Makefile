@@ -25,8 +25,8 @@ all: $(NAME)
 
 OBJS = $(SRCS:.c=.o)
 
-$(NAME) : $(OBJS) $(LIBFT) $(FT_PRINTF)
-	@$(CC) $(CFLAGS) $(LIBFT) $(FT_PRINTF) $(OBJS) -o $(NAME)
+$(NAME) : $(OBJS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(LIBFT) $(OBJS) -o $(NAME)
 	@echo "\x1b[31m							\n\
 	⠀⠀⠀⠀⠀⠀⠀⠀⣺⣷⠙⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⣼⣖⠀⠀⠀\n\
 	⠀⠀⠀⠀⠀⠀⠀⣠⠟⣛⠼⠓⠿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⠞⠧⣜⠻⣅⠀⠀⠀⠀⠀⠀⠀\n\
