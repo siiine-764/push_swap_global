@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:44:53 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/17 01:46:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:22:09 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ long	ft_find_location(t_stack *s, long nbr)
 	return (-1);
 }
 
-long	ft_find_local(long *chaos, long nbr, int len)
+long	ft_find_local(long *chaos, long top_a, int len)
 {
 	int	i;
 
 	i = -1;
 	while (++i <= len)
-		if (chaos[i] == nbr)
+		if (chaos[i] == top_a)
 			return (i);
 	return (-1);
 }
