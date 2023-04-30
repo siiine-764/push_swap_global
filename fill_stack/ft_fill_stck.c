@@ -18,7 +18,10 @@ void	fill_stack_a(char **a, t_stack *s)
 	{
 		s->stack_a[s->top_a] = ft_atoi(a[s->top_a]);
 		if ((s->stack_a[s->top_a]) < MIN_INT || s->stack_a[s->top_a] > MAX_INT)
+		{
+			ft_free(a);
 			message_error();
+		}
 	}
 	s->top_a--;
 }

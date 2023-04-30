@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include<stdio.h>
+#include <stdio.h>
 
 void	ft_push_a(t_stack *s)
 {
@@ -60,6 +60,7 @@ void	ft_big_sort(t_stack *s)
 		else if (sopa > end)
 			ra(s);
 	}
+	free(chaos);
 	ft_push_a(s);
 }
 
@@ -105,5 +106,6 @@ void	ft_extra_big_sort(t_stack *s)
 		else if (sopa > end)
 			ra(s);
 	}
+	free(chaos);
 	ft_push_a(s);
 }
