@@ -54,7 +54,7 @@ int	main(int ac, char **av)
 	s.stack_a = ft_calloc(1, sizeof(long) * (s.len + 1));
 	s.stack_b = ft_calloc(1, sizeof(long) * (s.len + 1));
 	fill_stack_a(nmbr, &s);
-	ft_check_nbr(nmbr);
+	ft_check_double_nbr(&s, nmbr);
 	ft_option(&s);
 	free(s.stack_a);
 	free(s.stack_b);

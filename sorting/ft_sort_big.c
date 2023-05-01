@@ -76,25 +76,6 @@ void	ft_extra_big_sort(t_stack *s)
 	start = 0;
 	while (s->top_a >= 0)
 	{
-		// // sopa = ft_find_local(chaos, s->stack_a[0], s->top_a);
-		// // printf("%d\n",sopa);
-		// // exit(0);
-		// printf("--> top : %d start: %ld, top_a: %ld\n", s->top_a, chaos[start], s->stack_a[s->top_a]);
-		// if (s->stack_a[s->top_a] >= chaos[start] && s->stack_a[s->top_a] <= chaos[start])
-		// {
-		// 	pb(s);
-		// 	end++;
-		// 	start++;
-		// }
-		// else if (s->stack_a[s->top_a] < chaos[start])
-		// {
-		// 	pb(s);
-		// 	rb(s);
-		// 	end++;
-		// 	start++;
-		// }
-		// else if (s->stack_a[s->top_a] > chaos[start])
-		// 	ra(s);
 		sopa = ft_find_local(chaos, s->stack_a[0], s->top_a);
 		if (sopa >= start && sopa <= end)
 			pb(s);

@@ -20,6 +20,7 @@ void	fill_stack_a(char **a, t_stack *s)
 		if ((s->stack_a[s->top_a]) < MIN_INT || s->stack_a[s->top_a] > MAX_INT)
 		{
 			ft_free(a);
+			free(s->stack_a);
 			message_error();
 		}
 	}

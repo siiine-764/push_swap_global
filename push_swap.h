@@ -34,7 +34,7 @@ typedef struct stack
 void	ft_option(t_stack *s);
 /// ft_check_input //
 void	ft_check_speace(char **av);
-void	ft_check_nbr(char **av);
+void	ft_check_double_nbr(t_stack *s, char **av);
 void	check_argv(int argc, char **argv);
 int		ft_sorted(long *arr, int size);
 /// ft_sort //

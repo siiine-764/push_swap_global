@@ -64,7 +64,7 @@ void	check_argv(int argc, char **argv)
 	}
 }
 
-void	ft_check_nbr(char **av)
+void	ft_check_double_nbr(t_stack *s, char **av)
 {
 	int	i;
 	int	j;
@@ -76,7 +76,12 @@ void	ft_check_nbr(char **av)
 		while (av[j])
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
+			{
+				ft_free(av);
+				free(av[i]);
+				free(s->stack_a);
 				message_error();
+			}
 			j++;
 		}
 		i++;
