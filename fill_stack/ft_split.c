@@ -62,7 +62,10 @@ void	ft_check_len(int wrds, char const *s, char c, t_stack *stack)
 		sz = sizew(s, c, count);
 		stack->len++;
 		if (sz > 12)
+		{
+			free((char *)s);
 			message_error();
+		}
 		i++;
 		count = count + sz;
 	}
