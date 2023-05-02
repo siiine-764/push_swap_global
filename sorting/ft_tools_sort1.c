@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:44:53 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/30 12:22:09 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/02 03:18:00 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,13 @@ long	*ft_sort(t_stack *s)
 	long	nbr;
 	long	*chaos;
 
-	i = -1;
+	i = 0;
 	chaos = ft_calloc(1, sizeof(long *) * (s->top_a + 1));
-	while (++i <= s->top_a)
+	while (i <= s->top_a)
+	{
 		chaos[i] = s->stack_a[i];
+		i++;
+	}
 	i = 0;
 	while (i <= s->top_a - 1)
 	{

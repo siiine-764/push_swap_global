@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/21 18:16:31 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/02 02:38:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void	ft_check_speace(char **av)
 		while (av[i][++j])
 		{
 			if (av[i][j] == ' ')
-			{
 				spaces++;
-			}
 		}
 		if (len == spaces)
 			return ;
@@ -78,7 +76,6 @@ void	ft_check_double_nbr(t_stack *s, char **av)
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
 				ft_free(av);
-				free(av[i]);
 				free(s->stack_a);
 				message_error();
 			}

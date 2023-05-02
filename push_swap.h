@@ -6,19 +6,17 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:49:10 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/30 14:52:19 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/02 04:05:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-
 # include "./libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct stack
 {
@@ -66,8 +64,6 @@ void	ft_mssg_error3(t_stack *s);
 void	ft_mssg_error2(t_stack *s);
 void	ft_mssg_error1(long pop);
 // functoins to help sort //
-void	ft_part2(int start,int end, t_stack *s);
-void	ft_part1(int start,int end, t_stack *s);
 long	ft_find_biger(t_stack *s);
 long	ft_find_location(t_stack *s, long nbr);
 long	ft_find_minor(t_stack *s);

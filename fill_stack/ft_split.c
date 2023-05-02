@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:27:45 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/22 01:03:55 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/02 02:16:23 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	ft_check_len(int wrds, char const *s, char c, t_stack *stack)
 		while (s[count] == c)
 			count++;
 		sz = sizew(s, c, count);
-		stack->len++;
-		if (sz > 12)
-		{
-			free((char *)s);
-			message_error();
-		}
+			stack->len++;
+		// if (sz > 12)
+		// {
+		// 	free((char *)s);
+		// 	message_error();
+		// }
 		i++;
 		count = count + sz;
 	}
@@ -82,6 +82,7 @@ char	**ft_split(char const *s, char c, t_stack *stack)
 	count = 0;
 	if (!s)
 		return (0);
+	(void)*stack;
 	ft_check_len(cnt_words(s, c), s, c, stack);
 	stck = (char **)malloc((cnt_words(s, c) + 1) * sizeof(char *));
 	if (stck == NULL)

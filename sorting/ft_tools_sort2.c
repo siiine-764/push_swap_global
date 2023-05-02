@@ -6,26 +6,11 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 22:32:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/30 15:10:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/01 22:27:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	ft_part1(int start,int end, t_stack *s)
-{
-	pb(s);
-	start++;
-	end++;
-}
-
-void	ft_part2(int start,int end, t_stack *s)
-{
-	pb(s);
-	rb(s);
-	start++;
-	end++;
-}
 
 long	ft_find_minor(t_stack *s)
 {

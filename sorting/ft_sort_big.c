@@ -6,12 +6,11 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:46:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/04/30 16:17:37 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/02 04:14:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 void	ft_push_a(t_stack *s)
 {
@@ -39,25 +38,21 @@ void	ft_push_a(t_stack *s)
 
 void	ft_big_sort(t_stack *s)
 {
-	int		end;
-	int		start;
-	long	sopa;
+	long	sorted;
 	long	*chaos;
 
 	chaos = ft_sort(s);
-	end = 10;
-	start = 0;
 	while (s->top_a >= 0)
 	{
-		sopa = ft_find_local(chaos, s->stack_a[0], s->top_a);
-		if (sopa >= start && sopa <= end)
+		sorted = ft_find_local(chaos, s->stack_a[0], s->top_a);
+		if (sorted <= 10)
 			pb(s);
-		else if (sopa < start)
+		else if (sorted < 0)
 		{
 			pb(s);
 			rb(s);
 		}
-		else if (sopa > end)
+		else if (sorted > 10)
 			ra(s);
 	}
 	free(chaos);
@@ -68,7 +63,7 @@ void	ft_extra_big_sort(t_stack *s)
 {
 	int		end;
 	int		start;
-	int	sopa;
+	int		sopa;
 	long	*chaos;
 
 	chaos = ft_sort(s);
@@ -77,7 +72,7 @@ void	ft_extra_big_sort(t_stack *s)
 	while (s->top_a >= 0)
 	{
 		sopa = ft_find_local(chaos, s->stack_a[0], s->top_a);
-		if (sopa >= start && sopa <= end)
+		if (sopa <= end)
 			pb(s);
 		else if (sopa < start)
 		{
