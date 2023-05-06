@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:46:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/05/02 04:14:54 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:45:22 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,21 @@ void	ft_big_sort(t_stack *s)
 
 void	ft_extra_big_sort(t_stack *s)
 {
-	int		end;
-	int		start;
 	int		sopa;
 	long	*chaos;
 
 	chaos = ft_sort(s);
-	end = 25;
-	start = 0;
 	while (s->top_a >= 0)
 	{
 		sopa = ft_find_local(chaos, s->stack_a[0], s->top_a);
-		if (sopa <= end)
+		if (sopa <= 25)
 			pb(s);
-		else if (sopa < start)
+		else if (sopa < 0)
 		{
 			pb(s);
 			rb(s);
 		}
-		else if (sopa > end)
+		else if (sopa > 25)
 			ra(s);
 	}
 	free(chaos);

@@ -6,12 +6,12 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 10:47:47 by mayache-          #+#    #+#             */
-/*   Updated: 2023/05/02 02:13:12 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/05 23:22:04 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 long	ft_atoi(const char *str)
 {
 	int		i;

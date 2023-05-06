@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:27:45 by mayache-          #+#    #+#             */
-/*   Updated: 2023/05/02 02:16:23 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:26:55 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,6 @@ void	ft_check_len(int wrds, char const *s, char c, t_stack *stack)
 			count++;
 		sz = sizew(s, c, count);
 			stack->len++;
-		// if (sz > 12)
-		// {
-		// 	free((char *)s);
-		// 	message_error();
-		// }
 		i++;
 		count = count + sz;
 	}

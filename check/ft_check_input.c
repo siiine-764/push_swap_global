@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:57:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/05/02 02:38:56 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/05/05 23:32:38 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,34 +31,43 @@ void	ft_check_speace(char **av)
 				spaces++;
 		}
 		if (len == spaces)
-			return ;
+			message_error();
 		i++;
 	}
+}
+
+void	ft_tool(char *str)
+{
+	if (*str < '0' || *str > '9')
+		message_error();
 }
 
 void	check_argv(int argc, char **argv)
 {
 	int		i;
 	char	*str;
+	char	*start;
 
-	i = 1;
-	while (i != argc)
+	i = 0;
+	start = &argv[1][0];
+	while (++i != argc)
 	{
 		str = argv[i];
 		while (*str)
 		{
 			if (*str == '-' || *str == '+')
 			{
-				str++;
-				if (*str < '0' || *str > '9')
+				if (*(str - 1) != *start
+					&& *(str - 1) >= '0' && *(str - 1) <= '9')
 					message_error();
+				str++;
+				ft_tool(str);
 			}
 			else if (*str != ' ' && (*str < '0' || *str > '9'))
 				message_error();
 			if (*str)
 				str++;
 		}
-		i++;
 	}
 }
 
